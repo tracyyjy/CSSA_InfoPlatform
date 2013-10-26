@@ -1,7 +1,7 @@
 CSSAInfoplatform::Application.routes.draw do
   get "home_page/welcome"
-
   get "home_page/goodbye"
+  get "static_page/login"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

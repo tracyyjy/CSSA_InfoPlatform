@@ -15,7 +15,7 @@ development:
   database: CSSA_InfoPlatform_development
   pool: 5
   username: root
-  password: infoplatform
+  password: root
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -28,7 +28,7 @@ test:
   database: CSSA_InfoPlatform_test
   pool: 5
   username: root
-  password: infoplatform 
+  password: root
   socket: /tmp/mysql.sock
 
 production:
@@ -38,5 +38,5 @@ production:
   database: CSSA_InfoPlatform_production
   pool: 5
   username: root
-  password: infoplatform
+  password: root
   socket: /tmp/mysql.sock
