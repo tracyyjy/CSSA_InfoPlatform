@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CSSAInfoplatform</title>
+  <head>
+  <title>CSSA_Infoplatform</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  </head>
+  <body>
+    <header class = "navbar navbar-fixed-top">
+      <div class = "navbar-inner">
+        <%= link_to "CSSA_InfoPlatform", '#', id: "logo" %>
+        <nav>
+          <ul class="nav pull-right">
+            <li><%= link_to "Home", '#'%></li>
+            <li><%= link_to "Help", '#'%></li>
+            <li><%= link_to "Sign in", '#'%></li>
+            <li><%= link_to "About us", '#'%></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
 </html>

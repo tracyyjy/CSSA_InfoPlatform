@@ -4,4 +4,8 @@ class HomePageController < ApplicationController
 
   def goodbye
   end
+
+  def home
+  end
+
 end
