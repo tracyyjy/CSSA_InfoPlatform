@@ -1,8 +1,11 @@
 CSSAInfoplatform::Application.routes.draw do
 
+  get "users/new"
+
   root :to => 'home_page#home'
   match '/help', to: 'static_page#help'
   match '/home', to: 'home_page#home'
+  match '/signup', to: 'users#new'
 
 
   # The priority is based upon order of creation:
