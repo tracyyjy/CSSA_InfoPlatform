@@ -124,6 +124,20 @@ input, textarea, select, .uneditable-input{
   margin-bottom: 15px;
 }
 
+#error_explanation{
+  color: #f00;
+  ul{
+    list-style: none;
+    magin: 0 0 18 px 0;
+  }
+}
+
+.fields_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+
+
 
 
 
