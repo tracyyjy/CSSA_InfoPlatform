@@ -43,11 +43,6 @@ GEM
     coffee-script-source (1.6.3)
     erubis (2.7.0)
     execjs (2.0.2)
-    factory_girl (2.3.2)
-      activesupport
-    factory_girl_rails (1.4.0)
-      factory_girl (~> 2.3.0)
-      railties (>= 3.0.0)
     hike (1.2.3)
     i18n (0.6.5)
     journey (1.0.4)
@@ -116,7 +111,6 @@ DEPENDENCIES
   bootstrap-sass (= 2.0.0)
   bootstrap-will_paginate (= 0.0.5)
   coffee-rails (~> 3.2.1)
-  factory_girl_rails (= 1.4.0)
   jquery-rails
   mysql2
   rails (= 3.2.14)

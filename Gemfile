@@ -22,9 +22,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 # testing use gem
-group :test do
-  gem 'factory_girl_rails', '1.4.0'
-end
+# group :test do
+#   gem 'factory_girl_rails', '1.4.0'
+# end
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
