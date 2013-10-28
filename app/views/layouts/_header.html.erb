@@ -6,7 +6,15 @@
         <ul class="nav pull-right">
           <li><%= link_to "Home", '/home'%></li>
           <li><%= link_to "Help", '/help'%></li>
-          <li><%= link_to "Sign in", '#'%></li>
+		  <!-- Implement the drop down not work-->
+		  <%if signed_in? %>
+		  	<li><%= link_to "Users", "" %></li>
+			<li><%= link_to "Profile", "" %></li>
+			<li><%= link_to "Sign Out", signout_path, method: "delete"%></li>
+			<li> <%= link_to "Switch User",signin_path %></li>
+	      <%else %>
+		  	<li> <%= link_to "Sign in",signin_path %></li>
+		  <%end %>
         </ul>
       </nav>
     </div>

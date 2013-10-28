@@ -1,11 +1,17 @@
 CSSAInfoplatform::Application.routes.draw do
 
-  get "users/new"
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  # get "users/new"
 
   root :to => 'home_page#home'
   match '/help', to: 'static_page#help'
   match '/home', to: 'home_page#home'
   match '/signup', to: 'users#new'
+  # match '/signin', to: 'users#signin'# should appear in the same page later
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy'
+  
 
 
   # The priority is based upon order of creation:

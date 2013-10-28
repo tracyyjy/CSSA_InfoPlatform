@@ -10,7 +10,10 @@
     <%= render 'layouts/header'%>
     <div class="content">
     <div class="container">
-      <%= yield %>    
+      <% flash.each do |key, value|%>
+        <div class = "alert alert-<%= key %>"><%= value %></div>
+      <%end%>
+      <%= yield %>
     </div>
     </div>
     <%= render 'layouts/footer'%>
