@@ -8,6 +8,7 @@ CSSAInfoplatform::Application.routes.draw do
   match '/help', to: 'static_page#help'
   match '/home', to: 'home_page#home'
   match '/signup', to: 'users#new'
+  match '/signin', to: 'users#signin'# should appear in the same page later
 
 
 
