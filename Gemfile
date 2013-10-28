@@ -8,7 +8,7 @@ gem 'rails', '3.2.14'
 gem 'mysql2'
 gem 'bootstrap-sass', '2.0.0'
 gem 'bootstrap-will_paginate', '0.0.5'
-
+gem 'bcrypt-ruby', '~> 3.0.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,7 +21,10 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
+# testing use gem
+group :test do
+  gem 'factory_girl_rails', '1.4.0'
+end
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password

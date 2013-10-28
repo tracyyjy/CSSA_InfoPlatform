@@ -2,7 +2,7 @@ CSSAInfoplatform::Application.routes.draw do
 
   resources :users
 
-  get "users/new"
+  # get "users/new"
 
   root :to => 'home_page#home'
   match '/help', to: 'static_page#help'
