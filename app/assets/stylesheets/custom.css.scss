@@ -7,6 +7,7 @@ html{
 
 body{
   padding-top: 60px;
+  background-image: url(UCSB-from-air.jpg); 
 }
 
 section{
@@ -17,8 +18,13 @@ texarea{
   resize: vertical;
 }
 
+.content{
+  height: 610px;
+}
+
 .center{
   text-align: center;
+  background-color: transparent;
   h1{
     margin-bottom: 10px;
   }
@@ -46,7 +52,7 @@ h2{
 
 p{
   font-size: 1.1em;
-  line-height: 1.7em
+  line-height: 1.7em;
 }
 
 #logo{
@@ -66,30 +72,24 @@ p{
 }
 
 
-footer{
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: $grayLight;
-  a{
-    color: #555;
-    &:hover{
-      color: #222;
-    }
-  }
-  small{
-    float: left;
-  }
-  ul{
-    float: right;
-    list-style: none;
-    li{
-      float: left;
-      margin-left: 10px;
-    }
-  }
+.footer{
+  padding-top: 10px;
+  height: 30px;
+  width: auto;  
+  background-color: #fff;
+  filter:alpha(Opacity=60);-moz-opacity:0.6;opacity: 0.6;
+ 
 }
 
+footer span{
+  float: left;
+  padding-left: 20px;
+}
+
+footer a{
+  float: right;
+  padding-right: 20px;
+}
 
 
 
