@@ -12,6 +12,9 @@ CSSAInfoplatform::Application.routes.draw do
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'
   
+  # these just for skeleton use, maybe modified later 
+  match '/user_profile', to: 'users#profile'
+  match '/all_info', to: 'users#allinfo'
 
 
   # The priority is based upon order of creation:
