@@ -14,8 +14,8 @@
 		  <%else %>
 		  <li><%= link_to "User HomePage", current_user%></li>
 		  <!-- Implement the drop down not work-->
-		  	<li><%= link_to "Users Profile", '/user_profile' %></li>
-			<li><%= link_to "All Infomation", '/all_info' %></li>
+		  	<li><%= link_to "Users Profile", edit_user_path(current_user) %></li>
+			<li><%= link_to "All Infomation", allinfo_path %></li>
 			<li><%= link_to "Sign Out", signout_path, method: "delete"%></li>			
 		  	
 		  <%end %>
