@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:show, :edit, :update]# :show added op
-  before_filter :correct_user, only:[:show, :edit, :update]
+  before_filter :signed_in_user, only: [:index, :edit, :update]# user public homepage can be see
+  before_filter :correct_user, only:[:edit, :update]# all signed in user can see index
   def new
     @user = User.new
   end
@@ -21,8 +21,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user = User.new(params[:user])
-    render 'new'
+    @users = User.all
+    
   end
   
   def edit
