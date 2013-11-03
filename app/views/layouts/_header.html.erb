@@ -1,20 +1,25 @@
 <header class = "navbar navbar-fixed-top">
   <div class = "navbar-inner">
     <div class="container">
+	  <%if not signed_in? %>
       <%= link_to image_tag("logo.jpg"), '/home', id: "logo" %>
+	  <%else %>
+	   <%= link_to image_tag("logo.jpg"), current_user, id: "logo" %>
+	  <%end %>
       <nav>
         <ul class="nav pull-right">
+		  <%if not signed_in? %>
           <li><%= link_to "Home", '/home'%></li>
-          <li><%= link_to "Help", '/help'%></li>
+		  <li> <%= link_to "Sign in",signin_path %></li>
+		  <%else %>
+		  <li><%= link_to "User HomePage", current_user%></li>
 		  <!-- Implement the drop down not work-->
-		  <%if signed_in? %>
-		  	<li><%= link_to "Users", "" %></li>
-			<li><%= link_to "Profile", "" %></li>
-			<li><%= link_to "Sign Out", signout_path, method: "delete"%></li>
-			
-	      <%else %>
-		  	<li> <%= link_to "Sign in",signin_path %></li>
+		  	<li><%= link_to "Users Profile", edit_user_path(current_user) %></li>
+			<li><%= link_to "All Infomation", allinfo_path %></li>
+			<li><%= link_to "Sign Out", signout_path, method: "delete"%></li>			
+		  	
 		  <%end %>
+		  <li><%= link_to "Help", '/help'%></li>
         </ul>
       </nav>
     </div>
