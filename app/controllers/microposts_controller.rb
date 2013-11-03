@@ -14,9 +14,8 @@ class MicropostsController < ApplicationController
     end
   end
   
-  def destroy
+  def destroy 
     @micropost.destroy
-    flash[:success] = "Delete success!"
     redirect_to current_user
   end
   
