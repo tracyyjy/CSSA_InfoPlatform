@@ -1,3 +1,51 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com/\\
+@import "bootstrap";
+//#############################################################################################################
+// USER HOME PAGE
+
+
+.mail_main_area{
+  background: #f8f8f8;
+  margin-right: 2px;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 4px 4px;
+  height: 450px;
+  margin-top: 40px;
+}
+
+
+.mail_main_area .nav{
+  width: auto;
+  float: left;
+}
+
+.mail_main_area .mail_search{
+  width: inherit;
+}
+
+.mail_main_area .divider {
+  position: relative;
+  height: 1px;
+  margin-top: 50px; 
+  background-color: #e5e5e5;
+}
+
+.select_all_groups label{
+  font-size: 12pt;
+  width: auto;
+  float: left;
+  margin-right: 20px;
+}
+
+.select_all_groups .select_options{
+  font-size: 11pt;
+  width: auto;
+  height: 30px;;
+}
+
+
+
+
+
