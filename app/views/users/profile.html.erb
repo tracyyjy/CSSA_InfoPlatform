@@ -1,5 +1,48 @@
-<% provide(:title, "User Profile")%>
-<h1>User Profile</h1>
-<p>
-  User Profile!
-</p>
+<% provide(:title, "Profile Setting")%>
+<h1>Update your Profile Setting</h1>
+
+<div class="row">
+	<div class="span6 offset3"> 
+		<%= form_for(@user) do |f| %>
+			<%= render 'error/error_messages' %> 
+			
+		
+		
+			Select Your Preference Default Group
+
+			<%= f.label :annoucement %>
+			<%= f.check_box :annoucement%>
+
+	
+			<%= f.label :carpool %>		
+			<%= f.check_box :carpool%>
+
+
+			<%= f.label :rent_lease %>
+			<%= f.check_box :rent_lease %>
+
+
+			<%= f.label :sale,"Sell or Buy" %>
+			<%= f.check_box :sale %>
+
+
+			<!-- email notification -->
+			Email Notification
+			<%= f.label :annoucement_email, "Email for Annoucement" %>
+			<%= f.check_box :annoucement_email %>
+
+			<%= f.label :carpool_email, "Email for Carpool"  %>			
+			<%= f.check_box :carpool_email %>
+
+			<%= f.label :rent_lease_email, "Email for Rent or Lease"  %>
+			<%= f.check_box :rent_lease_email %>
+
+			<%= f.label :sale_email, "Email for Sell or Buy"  %>
+			<%= f.check_box :sale_email %>
+			
+			<%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+		<% end %>
+		<!-- <%= gravatar_for @user %> -->
+		<!-- <a href="http://gravatar.com/emails">change</a>  -->
+	</div>
+</div>

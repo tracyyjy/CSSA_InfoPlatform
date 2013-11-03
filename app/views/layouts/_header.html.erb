@@ -9,15 +9,16 @@
       <nav>
         <ul class="nav pull-right">
 		  <%if not signed_in? %>
-          <li><%= link_to "Home", '/home'%></li>
+          <li><%= link_to "Home", root_path%></li>
 		  <li> <%= link_to "Sign in",signin_path %></li>
 		  <%else %>
 		  <li><%= link_to "User Public", current_user%></li>
-		  <li><%= link_to "User Private", ""%></li>
+		  <li><%= link_to "User Private", privatehome_user_path(current_user)%></li>
 		  <!-- Implement the drop down not work-->		  
 		  <li><%= link_to "All Info", allinfo_path %></li>
 		  <li><%= link_to "All User", users_path %></li>
-		  <li><%= link_to "Profile Setting", edit_user_path(current_user) %></li>
+		  <li><%= link_to "Profile Setting", profile_user_path(current_user) %></li>
+		  <li><%= link_to "Account Setting", edit_user_path(current_user) %></li>
 		  <li><%= link_to "Sign Out", signout_path, method: "delete"%></li>			
 		  	
 		  <%end %>

@@ -1,0 +1,17 @@
+<% provide(:title, "User Private")%>
+<h1>Private User Home</h1>
+<p>
+  <%= gravatar_for @user%>
+  <li>
+  <%= @user.name %>
+  <%= @user.email %>
+  </li>
+  <%= @user.annoucement%>
+  <%= @user.carpool%>
+  <%= @user.rent_lease%>
+  <%= @user.sale%>
+  <%= @user.annoucement_email%>
+  <%= @user.carpool_email%>
+  <%= @user.rent_lease_email%>
+  <%= @user.sale_email%>
+</p>
