@@ -2,6 +2,7 @@
 	<%= render 'error/error_messages', object: @micropost%>
 	<div class="filed">
 		<%= f.text_area :content, placeholder: "Compose new micropost" %>
+		<%= f.text_area :group, placeholder: "Add the group" %>
 	</div>
 	<%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>
