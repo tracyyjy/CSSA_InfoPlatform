@@ -1,14 +1,13 @@
-<header class = "navbar navbar-fixed-top">
-  <div class = "navbar-inner">
-    <div class="container">
-	  <%if not signed_in? %>
+<header class = "navbar navbar-fixed-top navbar-inverse">
+  <div class="collapse navbar-collapse">
+  <div class="container">
+      <%if not signed_in? %>
       <%= link_to image_tag("logo.jpg"), '/home', id: "logo" %>
 	  <%else %>
 	   <%= link_to image_tag("logo.jpg"), current_user, id: "logo" %>
 	  <%end %>
-      <nav>
-        <ul class="nav pull-right">
-		  <%if not signed_in? %>
+    <ul class="nav navbar-nav navbar-right">
+      <%if not signed_in? %>
           <li><%= link_to "Home", '/home'%></li>
 		  <li> <%= link_to "Sign in",signin_path %></li>
 		  <%else %>
@@ -20,8 +19,7 @@
 		  	
 		  <%end %>
 		  <li><%= link_to "Help", '/help'%></li>
-        </ul>
-      </nav>
+    </ul>
     </div>
-  </div>
+  </div> 
 </header>

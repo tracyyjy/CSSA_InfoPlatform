@@ -1,4 +1,4 @@
-@import "bootstrap";
+//@import "bootstrap";
 
 
 html{
@@ -47,7 +47,7 @@ h2{
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: normal;
-  color: $grayLight;
+  //color: $grayLight;
 }
 
 p{
@@ -74,7 +74,7 @@ p{
 
 .footer{
   padding-top: 10px;
-  height: 30px;
+  height: 25px;
   width: auto;  
   background-color: #fff;
   filter:alpha(Opacity=60);-moz-opacity:0.6;opacity: 0.6;
@@ -94,7 +94,7 @@ footer a{
 aside{
   section{
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid ;//$grayLighter;
     &:first-child{
       border: 0;
       padding-top: 0;
