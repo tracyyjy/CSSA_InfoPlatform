@@ -10,30 +10,38 @@
 
 <div class = "control-group select_all_groups">
 	<label class = "select_label" for = "all_groups">My Groups: </label>
-		<select class = "col-xs-10 select_options" name="all_groups" id = "all_groups">
-			<!-- Need to be filled in dynamically -->
-			<option value="ucsb announcement">UCSB Announcement</option>
-			<option value="carpool">Carpool</option>
-			<option value="sells">Sells</option>
-		</select>
+	<select class = "col-xs-10 select_options" name="all_groups" id = "all_groups">
+		<!-- Need to be filled in dynamically -->
+		<option value="ucsb announcement">UCSB Announcement</option>
+		<option value="carpool">Carpool</option>
+		<option value="sells">Sells</option>
+	</select>
 </div>
 
 <div class="mail_main_area">
-		<ul class="nav nav-pills">
-  <li class="active"><a href="#">Inbox</a></li>
-  <li><a href="#">Sent</a></li>
-  <li><a href="#">Compose</a></li>
-</ul>
-		<form class="navbar-form navbar-left mail_search" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-      </div>
-      <button type="submit" class="btn btn-primary">Search</button>
-    </form>
-    <div class="divider"> </div>
-    <div class="mail_display_area">
-    	<div class="mail_list"></div>
-    	<div class="mail_content"></div>
-    </div>
-    
+	<ul class="nav nav-pills">
+		<li class="active">
+			<a href="#">Inbox</a>
+		</li>
+		<li>
+			<a href="#">Sent</a>
+		</li>
+		<li>
+			<a href="#">Compose</a>
+		</li>
+	</ul>
+	<form class="navbar-form navbar-left mail_search" role="search">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Search">
+		</div>
+		<button type="submit" class="btn btn-primary">
+			Search
+		</button>
+	</form>
+	<div class="divider"></div>
+	<div class="mail_display_area">
+		<div class="mail_list"></div>
+		<div class="mail_content"></div>
+	</div>
+
 </div>
