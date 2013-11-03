@@ -6,4 +6,5 @@ class Micropost < ActiveRecord::Base
   validates :content, presence: true
   
   default_scope order: 'microposts.created_at DESC'
+  
 end
