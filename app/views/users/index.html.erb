@@ -1,5 +1,14 @@
-<% provide(:title, "Index")%>
-<h1>Index</h1>
-<p>
-  Index for all users!
-</p>
+<% provide(:title, "All Users")%>
+<h1>All Users</h1>
+
+<ul class="users">
+	<!-- should change the CSS to set the layout -->
+	<!-- show user each line and paginate, see listing 9.31 in book -->
+	<% @users.each do |user| %>
+	<li>
+		<%= gravatar_for user %>
+		<%= link_to user.name, user %>
+	</li> 
+	<% end %>
+</ul>
+ 

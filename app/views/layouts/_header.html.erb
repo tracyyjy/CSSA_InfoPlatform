@@ -14,10 +14,10 @@
 		  <%else %>
 		  <li><%= link_to "User Public", current_user%></li>
 		  <li><%= link_to "User Private", ""%></li>
-		  <!-- Implement the drop down not work-->
-		  <li><%= link_to "Users Profile", edit_user_path(current_user) %></li>
-		  <li><%= link_to "All Infomation", allinfo_path %></li>
+		  <!-- Implement the drop down not work-->		  
+		  <li><%= link_to "All Info", allinfo_path %></li>
 		  <li><%= link_to "All User", users_path %></li>
+		  <li><%= link_to "Profile Setting", edit_user_path(current_user) %></li>
 		  <li><%= link_to "Sign Out", signout_path, method: "delete"%></li>			
 		  	
 		  <%end %>
