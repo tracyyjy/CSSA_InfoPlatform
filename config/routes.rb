@@ -2,6 +2,7 @@ CSSAInfoplatform::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
   # get "users/new"
 
   root :to => 'home_page#home'
@@ -13,8 +14,9 @@ CSSAInfoplatform::Application.routes.draw do
   match '/signout', to: 'sessions#destroy'
   
   # these just for skeleton use, maybe modified later 
-  match '/user_profile', to: 'users#profile'
-  match '/all_info', to: 'users#allinfo'
+  # match '/profile', to: 'users#edit'
+  match '/allinfo', to: 'users#allinfo' # should be seen by admin
+   match '/post', to: 'users#post' 
 
 
   # The priority is based upon order of creation:

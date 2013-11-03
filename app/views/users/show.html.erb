@@ -5,8 +5,16 @@
       <h1>
         <%= gravatar_for @user%>
         <%= @user.name %>
-		<!-- <%= @user.email %> -->
+		<%= @user.email %>
       </h1>
     </section>
   </aside>
+  </div class="span8">
+  	<% if @user.microposts.any? %>
+		<h3>Microposts (<%= @user.microposts.count %>)</h3>
+		<ol class="microposts">
+			<%= render @user.microposts %>
+		<ol>
+	<% end %>
+  </div>
 </div>
