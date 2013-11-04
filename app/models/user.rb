@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   # attr_accessor :password, :password_confirmation
   has_secure_password
   attr_accessible :name, :email, :password, :password_confirmation
+  has_many :microposts
+  has_many :relationship, foreign_key: "id";
   attr_accessible :annoucement, :carpool, :rent_lease, :sale
   attr_accessible :annoucement_email, :carpool_email, :rent_lease_email, :sale_email
   
@@ -19,6 +21,10 @@ class User < ActiveRecord::Base
 
   def create_remember_token
     self.remember_token = SecureRandom.urlsafe_base64
+  end
+  
+  def feed
+    self.microposts
   end
 
 end

@@ -1,5 +1,7 @@
-<% provide(:title, "All Info")%>
-<h1>All Info</h1>
-<p>
-  Coming Soon!
-</p>
+<% if signed_in? %>	
+	<div class="span8">
+		<h3>Feed</h3>	
+		<%= render 'shared/feed'%>
+	</div>
+<% else %>
+<% end %>

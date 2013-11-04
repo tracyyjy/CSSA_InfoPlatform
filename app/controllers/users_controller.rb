@@ -7,6 +7,14 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+  
+  def allinfo
+    @feed_items = current_user.feed
+  end
+  
+  def post
+    @micropost = current_user.microposts.build if signed_in? 
+  end
 
   def show
     @user = User.find(params[:id])
