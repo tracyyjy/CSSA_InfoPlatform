@@ -6,12 +6,22 @@
   <%= @user.name %>
   <%= @user.email %>
   </li>
-  <%= @user.annoucement%>
-  <%= @user.carpool%>
-  <%= @user.rent_lease%>
-  <%= @user.sale%>
-  <%= @user.annoucement_email%>
-  <%= @user.carpool_email%>
-  <%= @user.rent_lease_email%>
-  <%= @user.sale_email%>
+  <li>
+  Default Groups prefence:
+  <br>Annoucement <%= @user.annoucement%>
+  Carpool <%= @user.carpool%>
+  Rent or Lease <%= @user.rent_lease%>
+  Sale <%= @user.sale%>
+  </br>
+  </li>
+  <li>
+  Default Email Notification preference:
+  <br>
+  Annoucement <%= @user.annoucement_email%>
+  Carpool <%= @user.carpool_email%>
+  Rent or Lease <%= @user.rent_lease_email%>
+  Sale <%= @user.sale_email%>
+  </br>
+  </li>
+  My Groups:
 </p>
