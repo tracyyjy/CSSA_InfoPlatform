@@ -6,7 +6,7 @@
   <div class = "span6 offset3">
   	
     <%= form_for(@user) do |f|%>
-        <%= render 'error/error_messages'%>
+        <%= render 'error/error_messages', object: @user%>
         <%= f.label :name%>
         <%= f.text_field :name%>
 

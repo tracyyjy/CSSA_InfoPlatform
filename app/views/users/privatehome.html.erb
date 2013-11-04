@@ -1,0 +1,27 @@
+<% provide(:title, "User Private")%>
+<h1>Private User Home</h1>
+<p>
+  <%= gravatar_for @user%>
+  <li>
+  <%= @user.name %>
+  <%= @user.email %>
+  </li>
+  <li>
+  Default Groups prefence:
+  <br>Annoucement <%= @user.annoucement%>
+  Carpool <%= @user.carpool%>
+  Rent or Lease <%= @user.rent_lease%>
+  Sale <%= @user.sale%>
+  </br>
+  </li>
+  <li>
+  Default Email Notification preference:
+  <br>
+  Annoucement <%= @user.annoucement_email%>
+  Carpool <%= @user.carpool_email%>
+  Rent or Lease <%= @user.rent_lease_email%>
+  Sale <%= @user.sale_email%>
+  </br>
+  </li>
+  My Groups:
+</p>
