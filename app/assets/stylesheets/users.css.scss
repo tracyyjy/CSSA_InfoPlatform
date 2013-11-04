@@ -3,6 +3,51 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/\\
 //@import "bootstrap";
 //#############################################################################################################
+// USER SIGN UP & SIGN IN
+.sign_in_background, .sign_up_background, .sign_in, .sign_up{
+  position: absolute;
+  width: 600px;
+  margin-left: 160px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+}
+
+.sign_in_background, .sign_up_background{
+  background-color: #fff;
+  filter:alpha(Opacity=60);-moz-opacity:0.6;opacity: 0.6;
+}
+
+.sign_in_background, .sign_in{
+  margin-top: 80px;
+  height: 360px;
+}
+
+.sign_up_background, .sign_up{
+  margin-top: 30px;
+  height: 480px;
+}
+
+.sign_in .submit{
+   margin-top: 20px;
+   .sign_in_button{
+     float: right;
+     width: auto;
+     margin-right: 50px;
+   }
+}
+
+.sign_up .submit{
+   margin-top: 20px;
+   .sign_up_button{
+     float: right;
+     width: auto;
+     margin-right: 50px;
+   }
+}
+
+
+//#############################################################################################################
 // USER HOME PAGE
 .info h2{
   margin-top: 10px;
@@ -54,8 +99,7 @@
   height: 525px;
   margin-left: 5px;
   margin-bottom: 5px;
-  overflow-y: scroll;
-  
+  overflow-y: scroll; 
 }
 
 
