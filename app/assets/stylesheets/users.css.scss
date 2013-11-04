@@ -1,3 +1,108 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com/\\
+//@import "bootstrap";
+//#############################################################################################################
+// USER SIGN UP & SIGN IN
+.sign_in_background, .sign_up_background, .sign_in, .sign_up{
+  position: absolute;
+  width: 600px;
+  margin-left: 160px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+}
+
+.sign_in_background, .sign_up_background{
+  background-color: #fff;
+  filter:alpha(Opacity=60);-moz-opacity:0.6;opacity: 0.6;
+}
+
+.sign_in_background, .sign_in{
+  margin-top: 80px;
+  height: 360px;
+}
+
+.sign_up_background, .sign_up{
+  margin-top: 30px;
+  height: 480px;
+}
+
+.sign_in .submit{
+   margin-top: 20px;
+   .sign_in_button{
+     float: right;
+     width: auto;
+     margin-right: 50px;
+   }
+}
+
+.sign_up .submit{
+   margin-top: 20px;
+   .sign_up_button{
+     float: right;
+     width: auto;
+     margin-right: 50px;
+   }
+}
+
+
+//#############################################################################################################
+// USER HOME PAGE
+.info h2{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.mail_main_area{
+  background: #f8f8f8;
+  margin-right: 2px;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 4px 4px;
+  height: 600px;
+  margin-bottom: 53px;
+}
+
+
+.mail_main_area .nav{
+  width: auto;
+  float: left;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.mail_main_area .mail_search{
+  width: inherit;
+}
+
+.mail_main_area .divider {
+  position: relative;
+  height: 1px;
+  background-color: #e5e5e5;
+}
+
+.select_all_groups label{
+  font-size: 11pt;
+  width: auto;
+  float: left;
+  margin-right: 20px;
+}
+
+.select_all_groups .select_options{
+  font-size: 10pt;
+  width: auto;
+  height: 30px;;
+}
+
+.mail_list{
+  width: 280px;
+  height: 525px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  overflow-y: scroll; 
+}
+
+
+
+
+

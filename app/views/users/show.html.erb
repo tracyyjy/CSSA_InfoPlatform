@@ -1,23 +1,54 @@
 <% provide(:title, @user.name)%>
-<div class = "row">
-  <aside class = "span4">
-    <section>
-	  <p>
-		Public User homepage
-	  </p>
-      <h1>
-        <%= gravatar_for @user%>
-        <%= @user.name %>
-		<%= @user.email %>
-      </h1>
-    </section>
-  </aside>
-  </div class="span8">
-  	<% if @user.microposts.any? %>
-		<h3>Microposts (<%= @user.microposts.count %>)</h3>
-		<ol class="microposts">
-			<%= render @user.microposts %>
-		<ol>
-	<% end %>
-  </div>
+<div class = "info row">
+	<aside class = "span4">
+		<section>
+			<%= gravatar_for @user%>
+			<h2><%= @user.name %></h2>
+			<h5> <%= @user.email %></h5>
+		</section>
+	</aside>
 </div>
+
+<div class = "control-group select_all_groups">
+	<label class = "select_label" for = "all_groups">My Groups: </label>
+	<select class = "select_options" name="all_groups" id = "all_groups">
+		<!-- Need to be filled in dynamically -->
+		<option value="ucsb announcement">UCSB Announcement</option>
+		<option value="carpool">Carpool</option>
+		<option value="sells">Sells</option>
+	</select>
+</div>
+
+<div class="mail_main_area">
+	<ul class="nav nav-pills ">
+		<li class="active">
+			<a href="#">Inbox</a>
+		</li>
+		<li>
+			<a href="#">Sent</a>
+		</li>
+		<li>
+			<a href="#">Compose</a>
+		</li>
+	</ul>
+	<form class="navbar-form mail_search" role="search">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Search">
+		</div>
+		<button type="submit" class="btn btn-primary">
+			Search
+		</button>
+	</form>
+	<div class="divider"></div>
+	<div class="mail_display_area">
+		<!-- if 'inbox' is clicked then render inbox-->
+		<%= render 'inbox'%>
+		<!-- if 'sent' is clicked then render sent-->
+		<!-- if 'compose' is clicked then render compose-->
+		
+		<div class="mail_content"></div>
+	</div>
+
+</div>
+
+

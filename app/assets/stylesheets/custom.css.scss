@@ -1,4 +1,4 @@
-@import "bootstrap";
+//@import "bootstrap";
 
 
 html{
@@ -19,14 +19,31 @@ texarea{
 }
 
 .content{
-  height: 610px;
+  height: 630px;
+}
+
+.home_background, .center{
+  position: absolute;
+  width: 800px;
+  height: 240px;
+  margin-top: 100px;
+  margin-left: 60px;
+  text-align: center;
+}
+
+.home_background{
+  background-color: #fff;
+  filter:alpha(Opacity=60);-moz-opacity:0.6;opacity: 0.6;
 }
 
 .center{
-  text-align: center;
   background-color: transparent;
   h1{
+    margin-top: 50px;
     margin-bottom: 10px;
+  }
+  p{
+    margin-bottom: 30px;
   }
 }
 
@@ -47,7 +64,7 @@ h2{
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: normal;
-  color: $grayLight;
+  //color: $grayLight;
 }
 
 p{
@@ -74,7 +91,7 @@ p{
 
 .footer{
   padding-top: 10px;
-  height: 30px;
+  height: 20px;
   width: auto;  
   background-color: #fff;
   filter:alpha(Opacity=60);-moz-opacity:0.6;opacity: 0.6;
@@ -86,7 +103,7 @@ footer span{
   padding-left: 20px;
 }
 
-footer a{
+footer .contact_us, footer .version{
   float: right;
   padding-right: 20px;
 }
@@ -94,7 +111,7 @@ footer a{
 aside{
   section{
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid ;//$grayLighter;
     &:first-child{
       border: 0;
       padding-top: 0;
