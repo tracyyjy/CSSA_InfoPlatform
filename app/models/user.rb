@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
   attr_accessible :name, :email, :password, :password_confirmation
   has_many :microposts
+  has_many :relationship, foreign_key: "id";
   
 
   before_save {|user| user.email = user.email.downcase}
