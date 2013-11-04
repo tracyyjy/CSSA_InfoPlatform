@@ -30,10 +30,19 @@ ActiveRecord::Schema.define(:version => 20131103234253) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "admin",             :default => false
+    t.boolean  "annoucement",       :default => false
+    t.boolean  "annoucement_email", :default => false
+    t.boolean  "carpool",           :default => false
+    t.boolean  "carpool_email",     :default => false
+    t.boolean  "rent_lease",        :default => false
+    t.boolean  "rent_lease_email",  :default => false
+    t.boolean  "sale",              :default => false
+    t.boolean  "sale_email",        :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
