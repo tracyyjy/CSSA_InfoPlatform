@@ -15,7 +15,7 @@ CSSAInfoplatform::Application.routes.draw do
   # these just for skeleton use, maybe modified later 
   # match '/profile', to: 'users#edit'
   match '/allinfo', to: 'users#allinfo' # should be seen by admin
-
+  #match '/inbox', to: 'users#inbox'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

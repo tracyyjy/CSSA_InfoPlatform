@@ -4,21 +4,26 @@
 //@import "bootstrap";
 //#############################################################################################################
 // USER HOME PAGE
-
+.info h2{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 .mail_main_area{
   background: #f8f8f8;
   margin-right: 2px;
   border: 1px solid transparent;
   border-radius: 4px 4px 4px 4px;
-  height: 650px;
-  margin-top: 40px;
+  height: 600px;
+  margin-bottom: 53px;
 }
 
 
 .mail_main_area .nav{
   width: auto;
   float: left;
+  margin-top: 5px;
+  margin-left: 5px;
 }
 
 .mail_main_area .mail_search{
@@ -28,21 +33,29 @@
 .mail_main_area .divider {
   position: relative;
   height: 1px;
-  margin-top: 50px; 
   background-color: #e5e5e5;
 }
 
 .select_all_groups label{
-  font-size: 12pt;
+  font-size: 11pt;
   width: auto;
   float: left;
   margin-right: 20px;
 }
 
 .select_all_groups .select_options{
-  font-size: 11pt;
+  font-size: 10pt;
   width: auto;
   height: 30px;;
+}
+
+.mail_list{
+  width: 280px;
+  height: 525px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  overflow-y: scroll;
+  
 }
 
 
