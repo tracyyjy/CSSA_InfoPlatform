@@ -10,4 +10,9 @@ class Micropost < ActiveRecord::Base
   
   default_scope order: 'microposts.created_at DESC'
   
+  def self.from_groups_chosen_by(user)
+    users = "SELECT microposts.user_id FROM microposts join relationships on relationships.groupid = microposts.groupid WHERE relationships.userid = :user_id"
+    where("user_id IN (#{users}) OR user_id = :user_id", {user_id: user.id})  
+  end
+  
 end

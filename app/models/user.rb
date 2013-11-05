@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   end
   
   def feed
-    self.microposts
+    Micropost.from_groups_chosen_by(self)
   end
   
   def post(micropost)
