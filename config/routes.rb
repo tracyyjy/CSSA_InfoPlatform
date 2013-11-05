@@ -19,10 +19,10 @@ CSSAInfoplatform::Application.routes.draw do
   # match '/signin', to: 'users#signin'# should appear in the same page later
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'
-  
+  match '/choseninfo', to: 'users#choseninfo' # should be seen by admin
   match '/allinfo', to: 'users#allinfo' # should be seen by admin
   match '/post', to: 'users#post'
-  match '/choseninfo', to: 'users#choseninfo' 
+  
 
 
   # The priority is based upon order of creation:

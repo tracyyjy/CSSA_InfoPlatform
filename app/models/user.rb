@@ -25,8 +25,12 @@ class User < ActiveRecord::Base
     self.remember_token = SecureRandom.urlsafe_base64
   end
   
-  def feed
+  def chosenfeed
     Micropost.from_groups_chosen_by(self)
+  end
+  
+  def allfeed
+    Micropost.allmicroposts
   end
   
   def post(micropost)

@@ -9,7 +9,11 @@ class UsersController < ApplicationController
   end
   
   def allinfo
-    @feed_items = current_user.feed
+    @feed_items = current_user.allfeed
+  end
+  
+  def choseninfo
+    @feed_items = current_user.chosenfeed
   end
   
   def post

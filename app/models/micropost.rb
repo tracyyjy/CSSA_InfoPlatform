@@ -15,4 +15,9 @@ class Micropost < ActiveRecord::Base
     where("id IN (#{users}) OR user_id = :user_id", {user_id: user.id})  
   end
   
+  def self.allmicroposts
+    users = "select id FROM microposts"
+    where("id IN (#{users})")  
+  end
+  
 end
