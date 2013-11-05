@@ -21,7 +21,8 @@ CSSAInfoplatform::Application.routes.draw do
   match '/signout', to: 'sessions#destroy'
   
   match '/allinfo', to: 'users#allinfo' # should be seen by admin
-  match '/post', to: 'users#post' 
+  match '/post', to: 'users#post'
+  match '/choseninfo', to: 'users#choseninfo' 
 
 
   # The priority is based upon order of creation:
