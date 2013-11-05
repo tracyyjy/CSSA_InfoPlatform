@@ -95,13 +95,33 @@
 }
 
 .mail_list{
+  float: left;
   width: 280px;
   height: 525px;
+  background-color: #fff;
   margin-left: 5px;
   margin-bottom: 5px;
   overflow-y: scroll; 
 }
 
+.main_content{
+  float: right;
+  width: 640px;
+  height: 525px;
+  margin-right: 5px;
+  background-color: #fff;
+  overflow-y: scroll;
+  //border-style: solid;
+  //border-color: blue red;
+  
+}
+
+.fill_in_field{
+  height: 500px;
+  .text_area{
+    height: 200px;
+  }
+}
 
 
 
