@@ -3,44 +3,27 @@
 
 <div class="row">
 	<div class="span6 offset3"> 
-		<%= form_for(@user) do |f| %>
+		<%= form_for(@relationship) do |f| %>
 			<%= render 'error/error_messages', object: @user %> 
 			
+		    
 		
-		
-			Select Your Preference Default Group
+			Please input the group you want to follow
+			For demo, it will add to the relationtable
+			announcement's groupID is 1
+			carpool's groupID is 2
+			rent_lease's groupID is 3
+			sale's groupID is 4
+			  
 
-			<%= f.label :annoucement %>
-			<%= f.check_box :annoucement%>
-
-	
-			<%= f.label :carpool %>		
-			<%= f.check_box :carpool%>
-
-
-			<%= f.label :rent_lease %>
-			<%= f.check_box :rent_lease %>
-
-
-			<%= f.label :sale,"Sell or Buy" %>
-			<%= f.check_box :sale %>
-
-
-			<!-- email notification -->
-			Email Notification
-			<%= f.label :annoucement_email, "Email for Annoucement" %>
-			<%= f.check_box :annoucement_email %>
-
-			<%= f.label :carpool_email, "Email for Carpool"  %>			
-			<%= f.check_box :carpool_email %>
-
-			<%= f.label :rent_lease_email, "Email for Rent or Lease"  %>
-			<%= f.check_box :rent_lease_email %>
-
-			<%= f.label :sale_email, "Email for Sell or Buy"  %>
-			<%= f.check_box :sale_email %>
-			<br>
+			<%= render 'error/error_messages', object: @relationship%>
+			<div class="filed">
+				<%= f.text_area :groupid, placeholder: "Add the group" %>
+			</div>
 			<%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+
+
+			
 		</br>
 		<% end %>
 		<!-- <%= gravatar_for @user %> -->

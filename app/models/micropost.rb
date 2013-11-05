@@ -1,8 +1,9 @@
 class Micropost < ActiveRecord::Base
   attr_accessible :content  
-  attr_accessible :group  
+  attr_accessible :groupid  
   belongs_to :user
-  belongs_to :relationship
+  has_many :relationships, foreign_key: "groupid";
+ 
   
   validates :user_id, presence: true
   validates :content, presence: true

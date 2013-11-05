@@ -1,14 +1,11 @@
 class CreateRelationships < ActiveRecord::Migration
   def change
     create_table :relationships do |t|
-      t.integer :id
-      t.string :group
+      t.integer :groupid
 
       t.timestamps
     end
     
-    add_index: relationship, :id
-    add_index: relationship, :group
-    add_index: relationship, [:id, :group], unique: true
+    add_index: :relationships, :groupid
   end
 end

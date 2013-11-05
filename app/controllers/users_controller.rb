@@ -13,8 +13,11 @@ class UsersController < ApplicationController
   end
   
   def post
-    @micropost = current_user.microposts.build if signed_in? 
+    @micropost = current_user.microposts.build if signed_in?
+    #@relationship = current_user.post(@micropost)
+    @relationship = current_user.relationships.build if signed_in?
   end
+require "users_controller"
 
   def show
     @user = User.find(params[:id])
@@ -64,6 +67,7 @@ class UsersController < ApplicationController
   
   def profile
      @user = User.find(params[:id])
+     @relationship = current_user.relationships.build if signed_in?
   end
   
   private

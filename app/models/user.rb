@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
   has_secure_password
   attr_accessible :name, :email, :password, :password_confirmation
   has_many :microposts
-  has_many :relationship, foreign_key: "id";
+  has_many :relationships, foreign_key: "userid";
+  has_many :groups, through: :relationships, source: :micropost
+  
   attr_accessible :annoucement, :carpool, :rent_lease, :sale
   attr_accessible :annoucement_email, :carpool_email, :rent_lease_email, :sale_email
   
@@ -25,6 +27,10 @@ class User < ActiveRecord::Base
   
   def feed
     self.microposts
+  end
+  
+  def post(micropost)
+    self.relationships.create(groupid: micropost.groupid)
   end
 
 end
