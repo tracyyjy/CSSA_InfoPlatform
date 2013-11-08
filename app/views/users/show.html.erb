@@ -10,13 +10,12 @@
 
 <div class = "control-group select_all_groups">
 	<label class = "select_label" for = "all_groups">My Groups: </label>
-	<div class = "select_options" name="all_groups" id = "all_groups">
+	<select class = "select_options" name="all_groups" id = "all_groups">
+		<% current_user.groups.each do |joined_group| %>
+			<option value="joined_group.id"><%= joined_group.group_name%></option>
+		<% end %>
 		
-		<!-- Need to be filled in dynamically -->
-		<option value="ucsb announcement">UCSB Announcement</option>
-		<option value="carpool">Carpool</option>
-		<option value="sells">Sells</option>
-	</div>
+	</select>
 </div>
 
 <div class="mail_main_area">
@@ -25,7 +24,7 @@
 			<a href="#inbox" data-toggle="pill">Inbox</a>
 		</li>
 		<li id="li_sent">
-			<a href="#sent" data-toggle="pill">Sent</a>
+			<a href="#sentbox" data-toggle="pill">Sent</a>
 		</li>
 		<li id="li_compose"> 
 			<a href="#compose" data-toggle="pill">Compose</a>
@@ -44,7 +43,7 @@
 		<!-- if 'inbox' is clicked then render inbox-->
 		<div class="tab-pane active" id="inbox"><%= render 'user_public/inbox'%></div>
 		<!-- if 'sent' is clicked then render sent-->
-		<div class="tab-pane" id="sent">sent box is here!</div>
+		<div class="tab-pane" id="sentbox"><%= render 'user_public/sentbox'%></div>
 		<!-- if 'compose' is clicked then render compose-->
 		<div class="tab-pane" id="compose"><%= render 'user_public/compose'%></div>	
 	</div>

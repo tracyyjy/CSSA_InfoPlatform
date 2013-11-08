@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :privatehome, :profile]# user public homepage can be see
-  before_filter :correct_user, only:[:edit, :update, :privatehome, :profile]# all signed in user can see index
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :publichome, :profile]# user public homepage can be see
+  before_filter :correct_user, only:[:edit, :update, :publichome, :profile]# all signed in user can see index
   before_filter :admin_user, only: :destroy # how to add an admin to database?
   before_filter :skip_password_attribute, only: :profile
   
@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts =@user.microposts #.paginate(page: params[:page]) #just show
+    @micropost = current_user.microposts.build if signed_in?  # just create
   end
 
   def create
@@ -61,7 +62,7 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
   
-  def privatehome
+  def publichome
      @user = User.find(params[:id])
      if signed_in? 
        @micropost = current_user.microposts.build #used for create post
