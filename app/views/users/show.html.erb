@@ -2,8 +2,7 @@
 <div class = "info row">
 	<aside class = "span4">
 		<section>
-			<%= gravatar_for @user%>
-			<h2><%= @user.name %></h2>
+			<%= render 'shared/user_info'%>
 			<h5> <%= @user.email %></h5>
 		</section>
 	</aside>
@@ -20,15 +19,15 @@
 </div>
 
 <div class="mail_main_area">
-	<ul class="nav nav-pills ">
-		<li class="active">
-			<a href="#">Inbox</a>
+	<ul class="nav nav-pills " id="ul_mail_nav">
+		<li class="active" id="li_inbox">
+			<a href="#inbox" data-toggle="pill">Inbox</a>
 		</li>
-		<li>
-			<a href="#">Sent</a>
+		<li id="li_sent">
+			<a href="#sent" data-toggle="pill">Sent</a>
 		</li>
-		<li>
-			<a href="#">Compose</a>
+		<li id="li_compose"> 
+			<a href="#compose" data-toggle="pill">Compose</a>
 		</li>
 	</ul>
 	<form class="navbar-form mail_search" role="search">
@@ -40,13 +39,13 @@
 		</button>
 	</form>
 	<div class="divider"></div>
-	<div class="mail_display_area">
+	<div class="mail_display_area tab-content">
 		<!-- if 'inbox' is clicked then render inbox-->
-		<%= render 'inbox'%>
+		<div class="tab-pane active" id="inbox"><%= render 'user_public/inbox'%></div>
 		<!-- if 'sent' is clicked then render sent-->
+		<div class="tab-pane" id="sent">sent box is here!</div>
 		<!-- if 'compose' is clicked then render compose-->
-		
-		<div class="mail_content"></div>
+		<div class="tab-pane" id="compose"><%= render 'user_public/compose'%></div>	
 	</div>
 
 </div>
