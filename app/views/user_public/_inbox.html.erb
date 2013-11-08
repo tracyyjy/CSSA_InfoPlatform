@@ -1,9 +1,11 @@
 <div class="list-group mail_list">
 	<!--  use a for loop here to display each mail briefly -->
+	<% current_user.groups.each do |joined_group| %>
   <a href="#" class="list-group-item active">
-    <h4 class="list-group-item-heading">List group item heading</h4>
+    <h4 class="list-group-item-heading"><%= joined_group.group_name %></h4>	
     <p class="list-group-item-text">...</p>
   </a>
+  <% end %>
   <a href="#" class="list-group-item">
     <h4 class="list-group-item-heading">List group item heading</h4>
     <p class="list-group-item-text">Have</p>
@@ -28,5 +30,11 @@
 </div>
 
 <div class="main_content">
-	
+	Number of groups: <%= @user.groups.count%>
+	<% @user.groups.each do |joined_group|%>
+	<br><%= joined_group.group_name%></br>
+	has microposts:
+	<br><%= joined_group.microposts.count%></br>
+	<%= render joined_group.microposts %>
+	<%end%>
 </div>

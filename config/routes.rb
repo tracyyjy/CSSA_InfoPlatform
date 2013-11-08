@@ -2,7 +2,7 @@ CSSAInfoplatform::Application.routes.draw do
 
   resources :users do
     member do
-      get 'privatehome'# inbox
+      get 'publichome'# inbox
       get 'profile'
     end
   end

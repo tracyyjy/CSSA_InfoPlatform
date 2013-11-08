@@ -12,9 +12,9 @@
           <li><%= link_to "Home", root_path%></li>
 		  <li> <%= link_to "Sign in",signin_path %></li>
 		  <%else %>
-		  <li><%= link_to "User Public", current_user%></li>
+		  <li><%= link_to "User Private", current_user%></li>
 		  <li><%= link_to "Post", post_path%></li>
-		  <li><%= link_to "User Private", privatehome_user_path(current_user)%></li>
+		  <li><%= link_to "User Public", publichome_user_path(current_user)%></li>
 		  <!-- Implement the drop down not work-->		  
 		  <li><%= link_to "All Info", allinfo_path %></li>
 		  <li><%= link_to "All Group&User", users_path %></li>
