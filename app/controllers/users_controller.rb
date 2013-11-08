@@ -9,15 +9,17 @@ class UsersController < ApplicationController
   end
   
   def allinfo
-    @feed_items = current_user.feed
+    # @feed_items = current_user.feed
+    @feed_items =Micropost.all
   end
   
   def post
-    @micropost = current_user.microposts.build if signed_in? 
+    @micropost = current_user.microposts.build if signed_in?  # just create
   end
 
   def show
     @user = User.find(params[:id])
+    @microposts =@user.microposts #.paginate(page: params[:page]) #just show
   end
 
   def create
@@ -33,6 +35,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @groups = Group.all
     
   end
   
@@ -60,20 +63,31 @@ class UsersController < ApplicationController
   
   def privatehome
      @user = User.find(params[:id])
+     if signed_in? 
+       @micropost = current_user.microposts.build #used for create post
+       @microposts =@user.microposts #.paginate(page: params[:page])# used for display
+       @feed_items = current_user.feed
+     end
   end
   
   def profile
      @user = User.find(params[:id])
+     @groups = Group.all
+     @relationships = Relationship.all
+     
+     
+     
   end
+  
   
   private
-  
-  def signed_in_user
-    unless signed_in?
-      store_location
-      redirect_to signin_path, notice: "Please Sign in."
-    end
-  end
+#   defined in helper
+  # def signed_in_user
+  #   unless signed_in?
+  #     store_location
+  #     redirect_to signin_path, notice: "Please Sign in."
+  #   end
+  # end
   
   def correct_user
     @user = User.find(params[:id])

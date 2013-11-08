@@ -9,7 +9,7 @@ gem 'mysql2'
 gem 'bootstrap-sass', '2.0.0'
 gem 'bootstrap-will_paginate', '0.0.5'
 gem 'bcrypt-ruby', '~> 3.0.1'
-
+gem 'faker', '1.0.1' # used to make sample users 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
