@@ -11,7 +11,6 @@
 <div class = "control-group select_all_groups">
 	<label class = "select_label" for = "all_groups">My Groups: </label>
 	<select class = "select_options" name="all_groups" id = "all_groups">
-		<!-- Need to be filled in dynamically -->
 		<% current_user.groups.each do |joined_group| %>
 			<option value="joined_group.id"><%= joined_group.group_name%></option>
 		<% end %>
