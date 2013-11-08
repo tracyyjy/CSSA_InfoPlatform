@@ -1,4 +1,10 @@
-<% provide(:title, "All Users")%>
+<% provide(:title, "All Groups & Users")%>
+<h1>All Groups</h1>
+<br>Default Group:
+<% @groups.each do |group|%>
+<br><%= group.group_name%></br>
+<%end%>
+</br>
 <h1>All Users</h1>
 
 <ul class="users">
@@ -8,9 +14,9 @@
 	<li>
 		<%= gravatar_for user %>
 		<%= link_to user.name, user %>
-		<!-- <% if current_user.admin? && current_user?(user) %>
-		| <%= link_to "delete", user, method: :delete, confirm: "You Sure to Delete" %>
-		<% end %> -->
+		<% if current_user.admin? # && current_user?(user) %>
+			<%= link_to "delete", user, method: :delete, confirm: "You Sure to Delete" %>
+		<% end %>
 	</li> 
 	<% end %>
 </ul>

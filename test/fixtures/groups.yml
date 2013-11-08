@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  joiner_id: 1
-  joined_id: 1
+  name: MyString
+  description: MyString
 
 two:
-  joiner_id: 1
-  joined_id: 1
+  name: MyString
+  description: MyString

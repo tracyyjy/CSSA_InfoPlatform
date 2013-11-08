@@ -2,48 +2,25 @@
 <h1>Update your Profile Setting</h1>
 
 <div class="row">
-	<div class="span6 offset3"> 
-		<%= form_for(@user) do |f| %>
-			<%= render 'error/error_messages', object: @user %> 
-			
-		
-		
+	<div class="span6 offset3"> 		
 			Select Your Preference Default Group
-
-			<%= f.label :annoucement %>
-			<%= f.check_box :annoucement%>
-
-	
-			<%= f.label :carpool %>		
-			<%= f.check_box :carpool%>
-
-
-			<%= f.label :rent_lease %>
-			<%= f.check_box :rent_lease %>
-
-
-			<%= f.label :sale,"Sell or Buy" %>
-			<%= f.check_box :sale %>
-
-
-			<!-- email notification -->
-			Email Notification
-			<%= f.label :annoucement_email, "Email for Annoucement" %>
-			<%= f.check_box :annoucement_email %>
-
-			<%= f.label :carpool_email, "Email for Carpool"  %>			
-			<%= f.check_box :carpool_email %>
-
-			<%= f.label :rent_lease_email, "Email for Rent or Lease"  %>
-			<%= f.check_box :rent_lease_email %>
-
-			<%= f.label :sale_email, "Email for Sell or Buy"  %>
-			<%= f.check_box :sale_email %>
-			<br>
-			<%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-		</br>
-		<% end %>
-		<!-- <%= gravatar_for @user %> -->
-		<!-- <a href="http://gravatar.com/emails">change</a>  -->
+			
+<br>
+		<% for i in 0..3 %>
+			<%= @groups[i].group_name%>
+			<% if current_user.joining?(@groups[i]) %>
+			
+				<%= form_for(current_user.relationships.find_by_joined_id(@groups[i]), html:{method: :delete}) do |f| %>
+			
+				<%= f.submit "Unjoin", class: "btn btn-large" %>
+				<% end %>
+			<% else %>
+				<%= form_for(current_user.relationships.build(joined_id: @groups[i].id)) do |f| %>
+				<div><%= f.hidden_field :joined_id %></div>
+				<%= f.submit "Join",class:"btn btn-large btn-primary"  %>
+				<% end %>
+			<% end %>
+		<% end%>
+</br>		
 	</div>
 </div>

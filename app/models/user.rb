@@ -2,8 +2,11 @@ class User < ActiveRecord::Base
   # attr_accessor :password, :password_confirmation
   has_secure_password
   attr_accessible :name, :email, :password, :password_confirmation
-  has_many :microposts
-  has_many :relationship, foreign_key: "id";
+  has_many :microposts, dependent: :destroy
+  has_many :relationships, foreign_key: "joiner_id", dependent: :destroy
+  
+  has_many :groups, through: :relationships, source: :joined #!
+  
   attr_accessible :annoucement, :carpool, :rent_lease, :sale
   attr_accessible :annoucement_email, :carpool_email, :rent_lease_email, :sale_email
   
@@ -26,5 +29,18 @@ class User < ActiveRecord::Base
   def feed
     self.microposts
   end
+  
+  def allfeed
+  end 
 
+  def joining?(other_group)
+    relationships.find_by_joined_id(other_group.id)  #self.?
+  end
+  def join!(other_group)
+    relationships.create!(joined_id: other_group.id)
+  end
+  def unjoin!(other_group)
+    relationships.find_by_joined_id(other_group.id).destroy
+  end
+  
 end
