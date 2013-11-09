@@ -21,20 +21,29 @@
 			<%end%>
 </br>		
 <br>
+			
+			<% if @unjoined_groups.any? %>
 			Join Select from other group:
 			<%= form_for(current_user.relationships.build) do |f| %>
 				<div><%= f.hidden_field :joined_id %></div>
 				<%= f.collection_select :joined_id, @unjoined_groups, :id, :group_name %>
 				<%= f.submit "Join",class:"btn btn-large btn-primary"  %>
 			<% end %>
+			<%end%>
 			
+			
+			<% if @joined_groups.any? %>
 			Unjoin Select from other group:
+			
 			<% @joined_groups.each do |group| %>
+			<br>
 				<%= group.group_name%>
 				<%= form_for(current_user.relationships.find_by_joined_id(group), html:{method: :delete}) do |f| %>
 				<%= f.submit "Unjoin", class: "btn btn-large" %>
+			</br>
+				<% end %>
 			<% end %>
-			<% end %>
+			<%end %>
 </br>
 			Add new Group:
 			<%= form_for(current_user.groups.build) do |f|%>
