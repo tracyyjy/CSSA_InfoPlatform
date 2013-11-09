@@ -13,7 +13,7 @@ class MicropostsController < ApplicationController
     else
       # @feed_items =[]
       @feed_items = current_user.feed
-      render privatehome_user_path(current_user) # not current_user
+      render publichome_user_path(current_user) # not current_user
     end
   end
   

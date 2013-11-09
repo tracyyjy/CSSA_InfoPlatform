@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :publichome, :profile]# user public homepage can be see
-  before_filter :correct_user, only:[:edit, :update, :publichome, :profile]# all signed in user can see index
+  before_filter :signed_in_user, only: [:index, :show, :edit, :update, :destroy, :publichome, :profile]# user public homepage can be see
+  before_filter :correct_user, only:[:edit, :update, :show, :profile]# all signed in user can see index
   before_filter :admin_user, only: :destroy # how to add an admin to database?
   before_filter :skip_password_attribute, only: :profile
   
@@ -72,10 +72,22 @@ class UsersController < ApplicationController
   end
   
   def profile
-     @user = User.find(params[:id])
+     @user = User.find(params[:id])     
      @groups = Group.all
-     @relationships = Relationship.all
+     @default_groups=@groups[0..3]
+     @other_groups=@groups[4..-1]
+     @joined_groups=[]
+     @unjoined_groups=[]
+     @other_groups.each do |group| 
+       if current_user.joining?(group)
+         @joined_groups.push(group)
+       else
+         @unjoined_groups.push(group)
+       end
+     end
      
+     @relationships = Relationship.all
+     @group = current_user.groups.build
      
      
   end

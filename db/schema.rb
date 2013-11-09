@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131106223958) do
+ActiveRecord::Schema.define(:version => 20131109205427) do
 
   create_table "groups", :force => true do |t|
     t.string   "group_name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20131106223958) do
     t.datetime "updated_at", :null => false
     t.integer  "group_id"
     t.string   "group_name"
+    t.string   "title"
   end
 
   add_index "microposts", ["group_id", "created_at"], :name => "index_microposts_on_group_id_and_created_at"

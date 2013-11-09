@@ -1,5 +1,5 @@
 <li>
-	<%= link_to micropost.user.name, micropost.user %>
+	<%= link_to micropost.user.name, publichome_user_path(micropost.user) %>
 	<span class="group_name">[<%= micropost.group_name %>]</span>
 	<span class="content"><%= micropost.content %></span>
 	<span class="timestamp">

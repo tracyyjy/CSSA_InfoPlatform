@@ -6,21 +6,45 @@
 			Select Your Preference Default Group
 			
 <br>
-		<% for i in 0..3 %>
-			<%= @groups[i].group_name%>
-			<% if current_user.joining?(@groups[i]) %>
-			
-				<%= form_for(current_user.relationships.find_by_joined_id(@groups[i]), html:{method: :delete}) do |f| %>
-			
-				<%= f.submit "Unjoin", class: "btn btn-large" %>
-				<% end %>
-			<% else %>
-				<%= form_for(current_user.relationships.build(joined_id: @groups[i].id)) do |f| %>
-				<div><%= f.hidden_field :joined_id %></div>
-				<%= f.submit "Join",class:"btn btn-large btn-primary"  %>
-				<% end %>
-			<% end %>
-		<% end%>
+			<% @default_groups.each do |group| %>
+				<%= group.group_name%>
+					<% if current_user.joining?(group) %>
+						<%= form_for(current_user.relationships.find_by_joined_id(group), html:{method: :delete}) do |f| %>
+						<%= f.submit "Unjoin", class: "btn btn-large" %>
+						<% end %>
+					<% else %>
+						<%= form_for(current_user.relationships.build(joined_id: group.id)) do |f| %>
+						<div><%= f.hidden_field :joined_id %></div>
+						<%= f.submit "Join",class:"btn btn-large btn-primary"  %>
+						<% end %>
+					<% end %>
+			<%end%>
 </br>		
+<br>
+			Join Select from other group:
+			<%= form_for(current_user.relationships.build) do |f| %>
+				<div><%= f.hidden_field :joined_id %></div>
+				<%= f.collection_select :joined_id, @unjoined_groups, :id, :group_name %>
+				<%= f.submit "Join",class:"btn btn-large btn-primary"  %>
+			<% end %>
+			
+			Unjoin Select from other group:
+			<% @joined_groups.each do |group| %>
+				<%= group.group_name%>
+				<%= form_for(current_user.relationships.find_by_joined_id(group), html:{method: :delete}) do |f| %>
+				<%= f.submit "Unjoin", class: "btn btn-large" %>
+			<% end %>
+			<% end %>
+</br>
+			Add new Group:
+			<%= form_for(current_user.groups.build) do |f|%>
+				<!-- <%= render 'error/error_messages', object: @group%> -->
+				<%= f.submit "Post", class: "btn btn-large btn-primary" %>
+				<div class="filed">
+				<%= f.text_area :group_name, placeholder: "Compose new group" %>
+				<%= f.text_area :group_description, placeholder: "describe new group" %>
+				</div>
+	
+			<% end %>
 	</div>
 </div>

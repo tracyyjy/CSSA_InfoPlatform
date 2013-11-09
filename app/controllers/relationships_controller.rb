@@ -14,7 +14,7 @@ class RelationshipsController <ApplicationController
       # @group=Group.find(params[:relationship][:joined_id])
   #     current_user.join!(@group)
       flash[:success] = "Profile Setting updated" 
-      redirect_to current_user
+      redirect_to profile_user_path(current_user)
   end
   
   def destroy
