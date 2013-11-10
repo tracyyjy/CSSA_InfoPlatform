@@ -16,3 +16,13 @@
 
 $('.dropdown-toggle').dropdown();
 
+function get_options(group_id) {
+              $.ajax({
+                          type: "POST",
+                          url:'/users/show?current_groupid=' + group_id,
+                          data:'text'
+                          
+                      }
+              )
+}
+

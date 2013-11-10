@@ -10,12 +10,7 @@
 
 <div class = "control-group select_all_groups">
 	<label class = "select_label" for = "all_groups">My Groups: </label>
-	<select class = "select_options" name="all_groups" id = "all_groups">
-		<% current_user.groups.each do |joined_group| %>
-			<option value="joined_group.id"><%= joined_group.group_name%></option>
-		<% end %>
-		
-	</select>
+	<%= select_tag(:group_id, options_from_collection_for_select(@user.groups, :id, :group_name), :class=>"select_options", :onchange=>"get_options(this.value)") %>
 </div>
 
 <div class="mail_main_area">
@@ -41,7 +36,7 @@
 	<div class="divider"></div>
 	<div class="mail_display_area tab-content">
 		<!-- if 'inbox' is clicked then render inbox-->
-		<div class="tab-pane active" id="inbox"><%= render 'user_public/inbox'%></div>
+		<div class="tab-pane active" id="inbox"><%= render "user_public/inbox" %></div>
 		<!-- if 'sent' is clicked then render sent-->
 		<div class="tab-pane" id="sentbox"><%= render 'user_public/sentbox'%></div>
 		<!-- if 'compose' is clicked then render compose-->
