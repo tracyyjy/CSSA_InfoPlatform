@@ -1,35 +1,25 @@
-<% provide(:title, "User Private")%>
+<% provide(:title, "User Public")%>
 <h1>Public User Home</h1>
-
-<%= render 'shared/user_info'%>
-
 <p>
-	My Groups:
-	<li>
-	
-	Number of groups: <%= @user.groups.count%>
+	<br><%= @user.name%></br>
+	Has <%= @user.groups.count%>  of groups:
 	<% @user.groups.each do |joined_group|%>
-	<br><%= joined_group.group_name%></br>
-	has microposts:
-	<br><%= joined_group.microposts.count%></br>
-	<%= render joined_group.microposts %>
+	<li>
+	<%= joined_group.group_name%>
 	<%end%>
-	
+	</li>
+</p>	
+	Has <%= @user.microposts.count%> Posts:
+	<% @user.microposts.each do |post|%>
+	<li>
+		Group: [<%= post.group_name %>]
+		Title: <%= post.title %>
+		Cotent: <%= post.content %>
+		Posted: <%= time_ago_in_words(post.created_at) %> ago.
+		<% if current_user?(post.user)%>
+			<%= link_to "delete", post, method: :delete, confirm: "You sure?", title: post.content %>
+		<% end %>	
+	</li>	
+	<%end%>
 	</li>
 	
-	My Posts:
-	<!-- need to be modified, post by user can be seen in both public and private  -->
-  	<div class="span 8">
-	<% if @user.microposts.any? %>
-		<h3>Microposts (<%= @user.microposts.count %>)</h3>
-		<ol class="microposts">
-			<%= render @user.microposts %>
-		</ol>
-	<% end %>
-	
-	<!--or  render 'shared/feed' --> 
- 	</div>
- <!-- category as group  -->
- 	
-</p>
-<!-- <%= render 'shared/micropost_form'%> -->

@@ -19,8 +19,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @microposts =@user.microposts #.paginate(page: params[:page]) #just show
-    @micropost = current_user.microposts.build if signed_in?  # just create
+    @microposts =@user.microposts #.paginate(page: params[:page]) #for show
+    @micropost = current_user.microposts.build if signed_in?  # for create
   end
 
   def create
@@ -64,11 +64,6 @@ class UsersController < ApplicationController
   
   def publichome
      @user = User.find(params[:id])
-     if signed_in? 
-       @micropost = current_user.microposts.build #used for create post
-       @microposts =@user.microposts #.paginate(page: params[:page])# used for display
-       @feed_items = current_user.feed
-     end
   end
   
   def profile
