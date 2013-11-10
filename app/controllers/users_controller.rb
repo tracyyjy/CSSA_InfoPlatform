@@ -27,6 +27,9 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
+      #  join in default group
+      @group=Group.first
+      @user.join!(@group)
       flash[:success] = "Sign Up Successfully! Welcome!"
       redirect_to @user
     else
