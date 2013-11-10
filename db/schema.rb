@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131109205427) do
+ActiveRecord::Schema.define(:version => 20131110191157) do
 
   create_table "groups", :force => true do |t|
     t.string   "group_name"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20131109205427) do
     t.boolean  "rent_lease_email",  :default => false
     t.boolean  "sale",              :default => false
     t.boolean  "sale_email",        :default => false
+    t.integer  "current_group",     :default => 1
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
