@@ -14,5 +14,5 @@
 //   
 // }
 
-$('.dropdown-toggle').dropdown();
+
 
