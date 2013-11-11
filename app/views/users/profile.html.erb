@@ -48,7 +48,7 @@
 			Add new Group:
 			<%= form_for(current_user.groups.build) do |f|%>
 				<!-- <%= render 'error/error_messages', object: @group%> -->
-				<%= f.submit "Post", class: "btn btn-large btn-primary" %>
+				<%= f.submit "Add New Group", class: "btn btn-large btn-primary" %>
 				<div class="filed">
 				<%= f.text_area :group_name, placeholder: "Compose new group" %>
 				<%= f.text_area :group_description, placeholder: "describe new group" %>
