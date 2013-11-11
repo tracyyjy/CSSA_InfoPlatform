@@ -21,6 +21,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @microposts =@user.microposts #.paginate(page: params[:page]) #for show
     @micropost = current_user.microposts.build if signed_in?  # for create
+    @groups=Group.all
+    @current_group=@groups[@user.current_group-1]
   end
 
   def create

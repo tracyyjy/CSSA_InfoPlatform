@@ -8,9 +8,15 @@
 	</aside>
 </div>
 
-<div class = "control-group select_all_groups">
+<div class = "control-group select_all_groups">	
 	<label class = "select_label" for = "all_groups">My Groups: </label>
+	
+	<%= form_for(@user) do |f|%>
+<%= f.collection_select :current_group, current_user.groups.all, :id, :group_name, {},{:onChange => 'this.form.submit();'} %>
+<% end %>
+	<!--
 	<%= select_tag(:group_id, options_from_collection_for_select(@user.groups, :id, :group_name), :class=>"select_options", :onchange=>"get_options(this.value)") %>
+   -->
 </div>
 
 <div class="mail_main_area">
