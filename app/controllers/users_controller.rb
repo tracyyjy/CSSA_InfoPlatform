@@ -22,6 +22,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @micropost = current_user.microposts.build if signed_in?  # for create
+    @groups=Group.all
+    @current_group=@groups[@user.current_group-1]
   end
 
   def create

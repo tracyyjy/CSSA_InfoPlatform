@@ -8,10 +8,16 @@
 	</aside>
 </div>
 
-My Groups:
-<%= form_for(@user) do |f|%>
+<div class = "control-group select_all_groups">	
+	<label class = "select_label" for = "all_groups">My Groups: </label>
+	
+	<%= form_for(@user) do |f|%>
 <%= f.collection_select :current_group, current_user.groups.all, :id, :group_name, {},{:onChange => 'this.form.submit();'} %>
 <% end %>
+	<!--
+	<%= select_tag(:group_id, options_from_collection_for_select(@user.groups, :id, :group_name), :class=>"select_options", :onchange=>"get_options(this.value)") %>
+   -->
+</div>
 
 <div class="mail_main_area">
 	<ul class="nav nav-pills " id="ul_mail_nav">
@@ -36,7 +42,7 @@ My Groups:
 	<div class="divider"></div>
 	<div class="mail_display_area tab-content">
 		<!-- if 'inbox' is clicked then render inbox-->
-		<div class="tab-pane active" id="inbox"><%= render 'user_public/inbox'%></div>
+		<div class="tab-pane active" id="inbox"><%= render "user_public/inbox" %></div>
 		<!-- if 'sent' is clicked then render sent-->
 		<div class="tab-pane" id="sentbox"><%= render 'user_public/sentbox'%></div>
 		<!-- if 'compose' is clicked then render compose-->

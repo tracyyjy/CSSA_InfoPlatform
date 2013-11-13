@@ -44,4 +44,7 @@ class User < ActiveRecord::Base
     relationships.find_by_joined_id(other_group.id).destroy
   end
   
+  def my_group_posts
+    Micropost.from_current_group_joined_by(self)
+  end
 end
