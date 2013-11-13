@@ -64,7 +64,6 @@ h2{
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: normal;
-  //color: $grayLight;
 }
 
 p{
@@ -111,7 +110,7 @@ footer .contact_us, footer .version{
 aside{
   section{
     padding: 10px 0;
-    border-top: 1px solid ;//$grayLighter;
+    border-top: 1px solid ;
     &:first-child{
       border: 0;
       padding-top: 0;
@@ -129,9 +128,24 @@ aside{
     margin-bottom: 3px;
   }
 }
+.users {
+	list-style: none;
+	margin: 0;
+	li {
+		overflow: auto;
+		padding: 10px 0;
+		border-top: 1px solid ;
+		&:last-child {
+			border-bottom: 1px solid ;
+		}
+	}
+}
+
 
 .gravatar{
   float: left;
+  width: 60px;
+  height: 60px;
   margin-right: 10px;
 }
 
@@ -155,7 +169,35 @@ input, textarea, select, .uneditable-input{
   @extend .error;
 }
 
-/* post */
+/* microposts */
+
+.microposts {
+list-style: none;
+margin: 10px 0 0 0;
+height:100px;
+
+li {
+padding: 10px 0;
+border-top: 1px solid #e8e8e8;
+height: 100px;
+}
+}
+//.timestamp {
+//color: ;
+//}
+.gravatar {
+	float: left;
+	margin-right: 10px;
+}
+aside {
+	textarea {
+		height: 100px;
+		margin-bottom: 5px;
+	}
+}
+
+	
+
 
 
 

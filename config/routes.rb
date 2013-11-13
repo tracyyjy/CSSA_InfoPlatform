@@ -22,7 +22,8 @@ CSSAInfoplatform::Application.routes.draw do
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'
   
-  match '/allinfo', to: 'users#allinfo' # should be seen by admin
+  match '/allinfo', to: 'users#allinfo'
+  match '/allgroup', to: 'users#allgroup'
   match '/post', to: 'users#post'
 
 

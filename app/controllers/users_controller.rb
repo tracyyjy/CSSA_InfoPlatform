@@ -10,7 +10,9 @@ class UsersController < ApplicationController
   
   def allinfo
     # @feed_items = current_user.feed
-    @feed_items =Micropost.all
+    # @all_feed_items =Micropost.all
+ #    @feed_items=Micropost.all[0..99]
+    @feed_items = Micropost.paginate(page: params[:page])
   end
   
   def post
@@ -19,7 +21,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @microposts =@user.microposts #.paginate(page: params[:page]) #for show
     @micropost = current_user.microposts.build if signed_in?  # for create
     @groups=Group.all
     @current_group=@groups[@user.current_group-1]
@@ -40,9 +41,14 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    # @users = User.all
+    @users = User.paginate(page: params[:page])
     @groups = Group.all
-    
+    # @groups = Group.paginate(page: params[:page])  
+  end
+  
+  def allgroup
+    @groups = Group.all
   end
   
   def edit

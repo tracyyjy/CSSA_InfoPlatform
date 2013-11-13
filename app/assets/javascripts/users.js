@@ -41,7 +41,7 @@ function sent_mail_select(thisId, className){
 }
 
 
-$('.dropdown-toggle').dropdown();
+
 
 function get_options(group_id) {
               $.ajax({

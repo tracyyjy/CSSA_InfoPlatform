@@ -21,12 +21,15 @@ def make_users
                         password:"123456",
                         password_confirmation:"123456")
   
-  # 99.times do |n|
-  #   name=
-  #   email=
-  #   password=
-  #   User.create!()
-  # end
+  99.times do |n|
+    name="user"
+    email="user#{n+1}@user.com"
+    password="123456"
+    User.create!(name: name,
+                        email: email,
+                        password: password,
+                        password_confirmation: password)
+  end
 
 end
 

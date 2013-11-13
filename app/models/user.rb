@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # attr_accessor :password, :password_confirmation
   has_secure_password
   attr_accessible :name, :email, :password, :password_confirmation
-  attr_accessible :current_group
+  attr_accessible :current_group, :microposts
   has_many :microposts, dependent: :destroy
   has_many :relationships, foreign_key: "joiner_id", dependent: :destroy
   
