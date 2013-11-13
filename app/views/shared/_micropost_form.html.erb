@@ -3,11 +3,9 @@
 	
 	<%= f.submit "Post", class: "btn btn-large btn-primary" %>
 	<div class="filed">
-		<%= f.collection_select :group_id, current_user.groups.all, :id, :group_name %>
 		<%= f.text_area :title, placeholder: "Compose new title" %>
 		<%= f.text_area :content, placeholder: "Compose new micropost" %>
-	    <%= f.label :group_id %>
-	    
+	    <%= f.label :group_id %>	    
 		<!-- <%= f.text_area :group_name, placeholder: "Add the group" %> -->
 	</div>
 	

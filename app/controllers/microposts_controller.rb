@@ -5,8 +5,11 @@ class MicropostsController < ApplicationController
   
   def create
     @micropost = current_user.microposts.build(params[:micropost])
-    @group= Group.find(@micropost.group_id)
+    
+    @group= Group.find(current_user.current_group)
     @micropost.group_name=@group.group_name
+    @micropost.group_id= @group.id
+    
     if @micropost.save
       flash[:success] = "Post success!"
       redirect_to current_user
