@@ -35,6 +35,6 @@
 	<br><%= joined_group.group_name%></br>
 	has microposts:
 	<br><%= joined_group.microposts.count%></br>
-	<%= render joined_group.microposts %>
+	<%= render joined_group.microposts[0..99] %>
 	<%end%>
 </div>

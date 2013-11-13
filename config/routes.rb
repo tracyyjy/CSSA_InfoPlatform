@@ -4,6 +4,7 @@ CSSAInfoplatform::Application.routes.draw do
     member do
       get 'publichome'# inbox
       get 'profile'
+      get 'allgroup'
     end
   end
   
@@ -22,7 +23,7 @@ CSSAInfoplatform::Application.routes.draw do
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'
   
-  match '/allinfo', to: 'users#allinfo' # should be seen by admin
+  match '/allinfo', to: 'users#allinfo'
   match '/post', to: 'users#post'
 
 

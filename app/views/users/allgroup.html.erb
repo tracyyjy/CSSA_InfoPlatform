@@ -1,0 +1,9 @@
+<% provide(:title, "All Groups")%>
+<h1>All Groups</h1>
+<ul class="groups">
+<li>Default Group:
+<% @groups.each do |group|%>
+<li><%= group.group_name%></li>
+<%end%>
+</li>
+</ul>
