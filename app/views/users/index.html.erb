@@ -1,11 +1,21 @@
 <% provide(:title, "All Groups & Users")%>
 <h1>All Groups</h1>
-<br>Default Group:
+
+
+
+<ul class="groups">
+<li>Default Group:
 <% @groups.each do |group|%>
-<br><%= group.group_name%></br>
+<li><%= group.group_name%></li>
 <%end%>
-</br>
+</li>
+</ul>
+
+
+
 <h1>All Users</h1>
+
+<%= will_paginate %>
 
 <ul class="users">
 	<!-- should change the CSS to set the layout -->
@@ -20,4 +30,4 @@
 	</li> 
 	<% end %>
 </ul>
- 
+<%= will_paginate%> 

@@ -7,7 +7,8 @@ gem 'rails', '3.2.14'
 
 gem 'mysql2'
 gem 'bootstrap-sass', '2.0.0'
-gem 'bootstrap-will_paginate', '0.0.5'
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
 gem 'bcrypt-ruby', '~> 3.0.1'
 gem 'faker', '1.0.1' # used to make sample users 
 # Gems used only for assets and not required
