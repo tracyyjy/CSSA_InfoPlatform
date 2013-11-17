@@ -94,15 +94,19 @@
   height: 30px;;
 }
 
-.mail_list{
+.mail_left_part{
   float: left;
   width: 280px;
   height: 525px;
-  background-color: #fff;
+  background-color: transparent;
   margin-left: 5px;
   margin-bottom: 5px;
+}
+.mail_list{
+  height: 470px;
   overflow-y: scroll; 
 }
+
 
 .main_content{
   float: right;
@@ -133,6 +137,50 @@
   display: none;
 }
 
+//#############################################################################################################
+// COMMON BACKGROUND & COMMON AREA
+.common_background, .common_area, .common_area_alternative{
+  width: inherit; 
+  height: 500px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
+.common_background{
+  position: absolute;
+  margin-top: 80px; 
+  background-color: #fff;
+  filter:alpha(Opacity=80);-moz-opacity:0.6;opacity: 0.7;
+  z-index:-1;
+}
 
+.common_area{
+  margin-top: 40px;
+  height: 480px;
+  overflow-y: scroll; 
+}
+
+.common_area_pageinfo{
+  float: right;
+  margin-right: 300px;
+}
+
+.common_area_pagination{
+  position: absolute;
+  width: auto; 
+  margin-left: 668px;
+  margin-top: 40px;
+  //display: inline-block; 
+  
+  li{
+    margin-top:0px;
+    display: inline;
+    a{
+      //background-color: transparent;
+      //border: 1px solid #428bca;
+    }
+  }
+}
 
