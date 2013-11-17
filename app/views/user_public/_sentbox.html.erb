@@ -1,6 +1,7 @@
 <div class="list-group mail_list" id = "sent_group_mail_list">
 	<!--  use a for loop here to display each mail briefly -->
-	<% current_user.my_group_posts.each do |micropost| %>
+	
+	<% @outbox_microposts.each do |micropost| %>
 	<%= link_to '#inbox_mail'+micropost.id.to_s, :class=>"list-group-item",
 	:id=>"sent_mail#"+micropost.id.to_s, :onclick=>"sent_mail_select(this.id, this.className)" do %>
 	<h4 class="list-group-item-heading"><%= micropost.title %></h4>
@@ -13,7 +14,8 @@
 </div>
 
 <div class="main_content" id="sent_main_content">
-	<% current_user.my_group_posts.each do |micropost| %>
+	
+	<% @outbox_microposts.each do |micropost| %>
 	<%= label_tag micropost.id.to_s, :class=>"is_not_display", :id=>"sent_mail_content#"+micropost.id.to_s do%>
 	<%= micropost.content%>
 	<%end%>

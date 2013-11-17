@@ -24,6 +24,8 @@ class UsersController < ApplicationController
     @micropost = current_user.microposts.build if signed_in?  # for create
     @groups=Group.all
     @current_group=@groups[@user.current_group-1]
+    @inbox_microposts=@current_group.microposts.paginate(page: params[:page])
+    @outbox_microposts=current_user.my_group_posts.paginate(page: params[:page])
   end
 
   def create

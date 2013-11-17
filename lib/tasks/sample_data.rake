@@ -65,5 +65,10 @@ def make_microposts
 #                                             group_id: groups[i].id)}
 #   end
 # 
+  users=User.all
+  users.each {|user| user.microposts.create!(title: "Hello Title",
+    content: "Hello World Group",
+                                              group_name: "annoucement", 
+                                              group_id: 1)}
 end                  
   
