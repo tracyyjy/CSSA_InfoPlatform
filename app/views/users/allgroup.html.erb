@@ -1,9 +1,13 @@
+<div class = "common_background"></div>
 <% provide(:title, "All Groups")%>
-<h1>All Groups</h1>
-<ul class="groups">
-<li>Default Group:
-<% @groups.each do |group|%>
-<li><%= group.group_name%></li>
-<%end%>
-</li>
+<h3>All Groups</h3>
+<ul class="groups common_area">
+	<li>
+		Default Group:
+		<% @groups.each do |group|%>
+	<li>
+		<%= group.group_name%>
+	</li>
+	<%end%>
+	</li>
 </ul>

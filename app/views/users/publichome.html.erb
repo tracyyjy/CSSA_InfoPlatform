@@ -1,5 +1,9 @@
+<div class = "common_background"></div> 
+
 <% provide(:title, "User Public")%>
-<h1>Public User Home</h1>
+<h3>Public User Home</h3>	
+
+<div class = "common_area">
 <p>
 	<br><%= @user.name%></br>
 	Has <%= @user.groups.count%>  of groups:
@@ -22,4 +26,4 @@
 	</li>	
 	<%end%>
 	</li>
-	
+</div>	

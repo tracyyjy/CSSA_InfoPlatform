@@ -1,15 +1,17 @@
+<div class="mail_left_part">
 <div class="list-group mail_list" id = "inbox_group_mail_list">
 	<!--  use a for loop here to display each mail briefly -->
-	<%= will_paginate  @inbox_microposts %>
 	<% @inbox_microposts.each do |micropost| %>
 	 <%= link_to '#inbox_mail'+micropost.id.to_s, :class=>"list-group-item", 
 	 :id=>"inbox_mail#"+micropost.id.to_s, :onclick=>"inbox_mail_select(this.id, this.className)" do %>
     <h4 class="list-group-item-heading"><%= micropost.title %></h4>	
-    <p class="list-group-item-text">...</p>
+    
   <%end%>
-  <% end %>
-  <%= will_paginate  @inbox_microposts %>
- 
+  <% end %> 
+ </div>
+ <ul class="pagination inbox_pagination">
+ <%= will_paginate  @inbox_microposts, :container => false, :inner_window => '1', :outer_window => '1', :previous_label => '<<', :next_label => '>>' %>
+ </ul>
 </div>
 
 <div class="main_content" id="inbox_main_content">	

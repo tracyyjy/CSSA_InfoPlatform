@@ -1,18 +1,26 @@
+<div class = "common_background"></div>
+
+<ul class="pagination common_area_pagination">
+	<%= will_paginate @users, :container => false%>
+</ul>
+
 <% provide(:title, "All  Users")%>
 
-<h1>All Users</h1>
+<h3>All Users</h3>
 
-<%= will_paginate %>
+<div class="common_area_pageinfo">
+	<%= page_entries_info @users %>
+</div>
 
-<ul class="users">
+<ul class="users common_area">
 	<% @users.each do |user| %>
 	<li>
 		<%= gravatar_for user %>
 		<%= link_to user.name, publichome_user_path(user) %>
-		<% if current_user.admin? # && current_user?(user) %>
-			<%= link_to "delete", user, method: :delete, confirm: "You Sure to Delete" %>
+		<% if current_user.admin? && current_user?(user) %>
+		<%= link_to "delete", user, method: :delete, confirm: "You Sure to Delete" %>
 		<% end %>
-	</li> 
+	</li>
 	<% end %>
 </ul>
-<%= will_paginate%> 
+
