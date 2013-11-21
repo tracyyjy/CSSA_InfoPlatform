@@ -17,7 +17,9 @@
 	
 	<% @outbox_microposts.each do |micropost| %>
 	<%= label_tag micropost.id.to_s, :class=>"is_not_display", :id=>"sent_mail_content#"+micropost.id.to_s do%>
-	<%= micropost.content%>
+	<span class="content"><%= micropost.content %></span>
+	<span class="timestamp">
+		Posted <%= time_ago_in_words(micropost.created_at) %> ago.
 	<%end%>
 	<% end %>
 </div>

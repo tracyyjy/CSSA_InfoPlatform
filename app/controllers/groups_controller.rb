@@ -27,6 +27,8 @@ class GroupsController < ApplicationController
   
   def destroy 
     # @micropost.destroy
+    Group.find(params[:id]).destroy
+    flash[:success]="Group Destroyed by Admin"
     redirect_to current_user
   end
   

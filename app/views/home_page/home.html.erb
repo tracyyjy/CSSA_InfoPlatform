@@ -1,11 +1,16 @@
 <div class = "home_background"></div>
 	<div class="center hero-unit">
+		<% if not signed_in?%>
   	  <h1>Welcome to CSSA Information Platform</h1>
   		<p>
     		The place where you can get everything you want
   		</p>
 
   		<%= link_to "Sign up now", '/signup', class: "btn btn-large btn-primary" %>
+		<% else %>
+		<h1>Welcome to CSSA Information Platform</h1>
+		Current Annoucement later put here
+		<% end %>
 	</div>
 
 

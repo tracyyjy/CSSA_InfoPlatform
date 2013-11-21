@@ -17,9 +17,12 @@
 	<li>
 		<%= gravatar_for user %>
 		<%= link_to user.name, publichome_user_path(user) %>
-		<% if current_user.admin? && current_user?(user) %>
+		
+		<% if current_user.admin? &&  !current_user?(user) %>
+		<!-- admin can not delete himself -->
 		<%= link_to "delete", user, method: :delete, confirm: "You Sure to Delete" %>
 		<% end %>
+		
 	</li>
 	<% end %>
 </ul>
