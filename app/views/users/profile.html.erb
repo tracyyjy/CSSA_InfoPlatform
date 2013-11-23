@@ -3,51 +3,37 @@
 
 <div class="row">
 	<div class="span6 offset3"> 		
-			Select Your Preference Default Group
-			
-<br>
-			<% @default_groups.each do |group| %>
-				<%= group.group_name%>
-					<% if current_user.joining?(group) %>
-						<%= form_for(current_user.relationships.find_by_joined_id(group), html:{method: :delete}) do |f| %>
-						<%= f.submit "Unjoin", class: "btn btn-large" %>
-						<% end %>
-					<% else %>
-						<%= form_for(current_user.relationships.build(joined_id: group.id)) do |f| %>
-						<div><%= f.hidden_field :joined_id %></div>
-						<%= f.submit "Join",class:"btn btn-large btn-primary"  %>
-						<% end %>
-					<% end %>
-			<%end%>
-</br>		
 <br>
 			
 			<% if @unjoined_groups.any? %>
 			Join Select from other group:
-			<%= form_for(current_user.relationships.build) do |f| %>
-				<div><%= f.hidden_field :joined_id %></div>
-				<%= f.collection_select :joined_id, @unjoined_groups, :id, :group_name %>
-				<%= f.submit "Join",class:"btn btn-large btn-primary"  %>
-			<% end %>
+				<%= form_for(current_user.relationships.build) do |f| %>
+					<div><%= f.hidden_field :joined_id %></div>
+					<%= f.collection_select :joined_id, @unjoined_groups, :id, :group_name %>
+					<%= f.submit "Join",class:"btn btn-large btn-primary"  %>
+				<% end %>
 			<%end%>
 			
 			
 			<% if @joined_groups.any? %>
 			Unjoin Select from other group:
 			
-			<% @joined_groups.each do |group| %>
-			<br>
-				<%= group.group_name%>
-				<%= form_for(current_user.relationships.find_by_joined_id(group), html:{method: :delete}) do |f| %>
-				<%= f.submit "Unjoin", class: "btn btn-large" %>
-			</br>
+			<!--  -->
+				<% @joined_groups.each do |group| %>
+				<br>
+					<%= group.group_name%>
+					<%= form_for(current_user.relationships.find_by_joined_id(group), html:{method: :delete}) do |f| %>
+					<%= f.submit "Unjoin", class: "btn btn-large" %>
+				</br>
+					<% end %>
 				<% end %>
-			<% end %>
+				<!--  -->
+				
 			<%end %>
 </br>
 			Add new Group:
 			<%= form_for(current_user.groups.build) do |f|%>
-				<!-- <%= render 'error/error_messages', object: @group%> -->
+				<%= render 'error/error_messages', object: @group%>
 				<%= f.submit "Add New Group", class: "btn btn-large btn-primary" %>
 				<div class="filed">
 				<%= f.text_area :group_name, placeholder: "Compose new group" %>

@@ -7,4 +7,8 @@ class Group < ActiveRecord::Base
                                     dependent: :destroy
                                     
   has_many :users, through: :reverse_relationships, source: :joiner #!
+  
+  
+  validates :group_description, presence: true, length: {maximum: 200}
+  validates :group_name, presence: true, length: {maximum: 50}, uniqueness: {case_sensitive:false}
 end

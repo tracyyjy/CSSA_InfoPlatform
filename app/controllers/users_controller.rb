@@ -9,26 +9,29 @@ class UsersController < ApplicationController
   end
   
   def allinfo
-    # @feed_items = current_user.feed
-    # @all_feed_items =Micropost.all
- #    @feed_items=Micropost.all[0..99]
-    @feed_items = Micropost.paginate(page: params[:page])
+    # all posts in time order
+    @feed_items = Micropost.paginate(:include => :user, page: params[:page])
+    # use include option to avoid n+1 Queries Problem
   end
   
-  def post
-    @micropost = current_user.microposts.build if signed_in?  # just create
-  end
+  # def post
+  #  encapsulate in show
+  #   @micropost = current_user.microposts.build if signed_in?  # just create
+  # end
 
   def show
+    # user private  home page
     @user = User.find(params[:id])
-    @micropost = current_user.microposts.build if signed_in?  # for create
-    @groups=Group.all
-    @current_group=@groups[@user.current_group-1]
-    @inbox_microposts=@current_group.microposts.paginate(page: params[:page])
-    @outbox_microposts=current_user.my_group_posts.paginate(page: params[:page])
+    @current_group=Group.find(@user.current_group)
+    
+    @inbox_microposts=@current_group.microposts.paginate(:include => :user, page: params[:page])
+    @outbox_microposts=current_user.my_group_posts.paginate(:include => :user, page: params[:page])
+    
+    @micropost = current_user.microposts.build if signed_in?#used for compose new pose
   end
 
   def create
+    # sign in, called/together with new
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
@@ -43,14 +46,15 @@ class UsersController < ApplicationController
   end
 
   def index
-    # @users = User.all
+    #  show all users, pic, name, link to public home
     @users = User.paginate(page: params[:page])
-    @groups = Group.all
-    # @groups = Group.paginate(page: params[:page])  
+    
   end
   
   def allgroup
     @groups = Group.all
+    # There won't be too many groups
+    # group validation need to be added
   end
   
   def edit
@@ -58,10 +62,11 @@ class UsersController < ApplicationController
   end
   
   def update
+    # user change password, called/together with edit
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
         # Handle a successful update.
-        flash[:success] = "Profile Setting updated" 
+        flash[:success] = "User Profile Setting updated" 
         sign_in @user
         redirect_to @user
     else
@@ -82,22 +87,22 @@ class UsersController < ApplicationController
   def profile
      @user = User.find(params[:id])     
      @groups = Group.all
-     @default_groups=@groups[0..3]
-     @other_groups=@groups[4..-1]
-     @joined_groups=[]
-     @unjoined_groups=[]
-     @other_groups.each do |group| 
-       if current_user.joining?(group)
-         @joined_groups.push(group)
-       else
-         @unjoined_groups.push(group)
-       end
-     end
+     # @default_groups=Group.find([1,2,3,4])
+#      @other_groups=@groups[4..-1]
+     @joined_groups=@user.groups
+     @unjoined_groups=@groups-@user.groups
+     # @other_groups.each do |group| 
+#        if current_user.joining?(group)
+#          # @joined_groups.push(group)
+#        else
+#          @unjoined_groups.push(group)
+#        end
+#      end
      
-     @relationships = Relationship.all
+     # @relationships = Relationship.all
+     #  used for create new group
      @group = current_user.groups.build
-     
-     
+         
   end
   
   

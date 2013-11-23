@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
   has_secure_password
   attr_accessible :name, :email, :password, :password_confirmation
   attr_accessible :current_group, :microposts
-  has_many :microposts, dependent: :destroy
-  has_many :relationships, foreign_key: "joiner_id", dependent: :destroy
   
+  has_many :microposts, dependent: :destroy
+  has_many :relationships, foreign_key: "joiner_id", dependent: :destroy  
   has_many :groups, through: :relationships, source: :joined #!
   
   attr_accessible :annoucement, :carpool, :rent_lease, :sale
