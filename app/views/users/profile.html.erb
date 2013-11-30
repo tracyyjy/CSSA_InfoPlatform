@@ -1,46 +1,48 @@
+<div class = "common_background"></div>
+
 <% provide(:title, "Profile Setting")%>
-<h1>Update your Profile Setting</h1>
+<h3>Update your Profile Setting</h3>
 
-<div class="row">
-	<div class="span6 offset3"> 		
-<br>
-			
-			<% if @unjoined_groups.any? %>
-			Join Select from other group:
-				<%= form_for(current_user.relationships.build) do |f| %>
-					<div><%= f.hidden_field :joined_id %></div>
-					<%= f.collection_select :joined_id, @unjoined_groups, :id, :group_name %>
-					<%= f.submit "Join",class:"btn btn-large btn-primary"  %>
-				<% end %>
-			<%end%>
-			
-			
-			<% if @joined_groups.any? %>
-			Unjoin Select from other group:
+<div class="row common_area">
+	<div class="span6 offset3">
+		<br>
+		<% if @unjoined_groups.any? %>
+		<b>Join Select from other group:</b>
+		<%= form_for(current_user.relationships.build) do |f| %>
+		<div>
+			<%= f.hidden_field :joined_id %>
+		</div>
+		<%= f.collection_select :joined_id, @unjoined_groups, :id, :group_name %>
+		<%= f.submit "Join",class:"btn btn-large btn-primary btn_compose" %>
+		<% end %>
+		<%end%>
 
-			
-			<!--  -->
-				<% @joined_groups.each do |group| %>
-				<br>
-					<%= group.group_name%>
-					<%= form_for(current_user.relationships.find_by_joined_id(group), html:{method: :delete}) do |f| %>
-					<%= f.submit "Unjoin", class: "btn btn-large" %>
-				</br>
-					<% end %>
-				<% end %>
-				<!--  -->
-				
-			<%end %>
-</br>
-			Add new Group:
-			<%= form_for(current_user.groups.build) do |f|%>
-				<%= render 'error/error_messages', object: @group%>
-				<%= f.submit "Add New Group", class: "btn btn-large btn-primary" %>
-				<div class="filed">
-				<%= f.text_area :group_name, placeholder: "Compose new group" %>
-				<%= f.text_area :group_description, placeholder: "describe new group" %>
-				</div>
-	
-			<% end %>
+		<% if @joined_groups.any? %>
+		<b>Unjoin Select from other group:</b>
+		<!--  -->
+		<% @joined_groups.each do |group| %>
+		<br>
+		<strong><%= group.group_name%></strong>
+		<%= form_for(current_user.relationships.find_by_joined_id(group), html:{method: :delete}) do |f| %>
+		<%= f.submit "Unjoin", class: "btn btn-large btn_compose" %>
+		</br>
+		<% end %>
+		<% end %>
+		<!--  -->
+
+		<%end %>
+		</br>
+		
+		<div class="divider"></div>
+		
+		<b>Add new Group:</b>
+		<%= form_for(current_user.groups.build) do |f|%>
+		<%= render 'error/error_messages', object: @group%>
+		<div class="filed">
+			<%= f.text_area :group_name, placeholder: "Compose new group", class: "compose_title"%>
+			<%= f.text_area :group_description, placeholder: "describe new group", class: "compose_content" %>
+		</div>
+		<%= f.submit "Add New Group", class: "btn btn-large btn-primary btn_compose" %>
+		<% end %>
 	</div>
 </div>

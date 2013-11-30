@@ -43,9 +43,21 @@ function sent_mail_select(thisId, className) {
 function get_options(user_id) {
 	var userId = document.getElementById(user_id).id;
 	//alert(userId);
+	var inbox = document.getElementById("li_inbox");
+	var sent = document.getElementById("li_sent");
+	var compose = document.getElementById("li_compose");
+	
+	//alert(inbox.id);
+	
+	if(inbox.className == "active"|| sent.className == "active"){
+		alert("inbox or sent!");
+	}else if(compose.className == "active"){
+		alert("compose!");
+	}
+	
 	$.ajax({
 		type : "POST",
-		url : '/user/show?current_groupid=' + group_id,
+		url : '/users/userId/show?current_groupid=' + group_id,
 		data : 'text'
 
 	})

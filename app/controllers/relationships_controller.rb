@@ -12,7 +12,7 @@ class RelationshipsController <ApplicationController
   
   def update
       # @group=Group.find(params[:relationship][:joined_id])
-  #     current_user.join!(@group)
+      # current_user.join!(@group)
       flash[:success] = "Group Setting updated" 
       redirect_to profile_user_path(current_user)
   end

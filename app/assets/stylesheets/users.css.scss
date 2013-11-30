@@ -127,6 +127,29 @@
   }
 }
 
+.compose_title, .compose_content{
+  margin: 5px;
+  width: 925px; 
+}
+
+.compose_title{
+  height: 35px;
+  line-height: 35px;
+}
+
+.compose_content{
+  height: 440px;
+  overflow-y: scroll;
+}
+
+.btn_compose{
+  width: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  float: right;
+  margin-right: 5px;
+}
+
 //#############################################################################################################
 // USER SHOW
 .is_display{
@@ -192,4 +215,8 @@
     display: inline;
   }
 }
+
+//#############################################################################################################
+// SETTINGS
+
 
