@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   
   def allinfo
     # all posts in time order
-    sign_in User.find(2)
     @feed_items = Micropost.paginate(:include => :user, page: params[:page])
     # use include option to avoid n+1 Queries Problem
   end
@@ -23,13 +22,12 @@ class UsersController < ApplicationController
   def show
     # user private  home page
     @user = User.find(params[:id])
-    sign_in @user
     @current_group=Group.find(@user.current_group)
     
     @inbox_microposts=@current_group.microposts.paginate(:include => :user, page: params[:page])
     @outbox_microposts=current_user.my_group_posts.paginate(:include => :user, page: params[:page])
     
-    @micropost = current_user.microposts.build #if signed_in?#used for compose new pose
+    @micropost = current_user.microposts.build if signed_in?#used for compose new pose
   end
 
   def create
@@ -49,27 +47,23 @@ class UsersController < ApplicationController
 
   def index
     #  show all users, pic, name, link to public home
-    sign_in User.find(2)
     @users = User.paginate(page: params[:page])
     
   end
   
   def allgroup
     @groups = Group.all
-    sign_in User.find(2)
     # There won't be too many groups
     # group validation need to be added
   end
   
   def edit
     @user = User.find(params[:id])
-    sign_in @user
   end
   
   def update
     # user change password, called/together with edit
     @user = User.find(params[:id])
-    sign_in @user
     if @user.update_attributes(params[:user])
         # Handle a successful update.
         flash[:success] = "User Profile Setting updated" 
@@ -88,13 +82,10 @@ class UsersController < ApplicationController
   
   def publichome
      @user = User.find(params[:id])
-     sign_in @user
   end
   
   def profile
-     sign_in User.find(2)  
-     @user = User.find(params[:id]) 
-       
+     @user = User.find(params[:id])     
      @groups = Group.all
      # @default_groups=Group.find([1,2,3,4])
 #      @other_groups=@groups[4..-1]
@@ -127,7 +118,7 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id])
     # which path should user be redirected? root_path or current_user
-    # redirect_to current_user, notice: "You don't hace access to other's page." unless current_user?(@user)
+    redirect_to current_user, notice: "You don't hace access to other's page." unless current_user?(@user)
   end
   
   def admin_user
