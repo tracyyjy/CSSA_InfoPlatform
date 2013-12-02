@@ -91,7 +91,7 @@
 .select_all_groups .select_options{
   font-size: 10pt;
   width: auto;
-  height: 30px;;
+  height: 30px;
 }
 
 .mail_left_part{
@@ -125,6 +125,29 @@
   .text_area{
     height: 200px;
   }
+}
+
+.compose_title, .compose_content{
+  margin: 5px;
+  width: 925px; 
+}
+
+.compose_title{
+  height: 35px;
+  line-height: 35px;
+}
+
+.compose_content{
+  height: 440px;
+  overflow-y: scroll;
+}
+
+.btn_compose{
+  width: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  float: right;
+  margin-right: 5px;
 }
 
 //#############################################################################################################
@@ -192,4 +215,38 @@
     display: inline;
   }
 }
+
+//#############################################################################################################
+// SETTINGS
+
+.join_area{
+  display: inline;
+}
+
+.unjoin_area{
+  margin-top: 50px;
+}
+
+.new_group_area{
+  margin-top:20px;
+}
+
+.select_join_group{
+  font-size: 10pt;
+  width: 800px;
+  line-height: 40px;
+  float: left;
+}
+
+.select_unjoin_group{
+  font-size: 12pt;
+  margin-left: 200px;
+  line-height: 40px;
+  float: left;
+}
+
+.btn_unjoin{
+  margin-right: 200px;
+}
+
 

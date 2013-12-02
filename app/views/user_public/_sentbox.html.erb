@@ -1,20 +1,24 @@
-<div class="list-group mail_list" id = "sent_group_mail_list">
-	<!--  use a for loop here to display each mail briefly -->
-	
-	<% @outbox_microposts.each do |micropost| %>
-	<%= link_to '#inbox_mail'+micropost.id.to_s, :class=>"list-group-item",
-	:id=>"sent_mail#"+micropost.id.to_s, :onclick=>"sent_mail_select(this.id, this.className)" do %>
-	<h4 class="list-group-item-heading"><%= micropost.title %></h4>
-	<p class="list-group-item-text">
-		...
-	</p>
-	<%end%>
-	<% end %>
+<div class="mail_left_part">
+	<div class="list-group mail_list" id = "sent_group_mail_list">
+		<!--  use a for loop here to display each mail briefly -->
 
+		<% @outbox_microposts.each do |micropost| %>
+		<%= link_to '#inbox_mail'+micropost.id.to_s, :class=>"list-group-item",
+		:id=>"sent_mail#"+micropost.id.to_s, :onclick=>"sent_mail_select(this.id, this.className)" do %>
+		<h4 class="list-group-item-heading"><%= micropost.title %></h4>
+		<p class="list-group-item-text">
+			...
+		</p>
+		<%end%>
+		<% end %>
+	</div>
+	<ul class="pagination inbox_pagination">
+		<%= will_paginate  @outbox_microposts, :container => false, :inner_window => '1', :outer_window => '1', :previous_label => '<<', :next_label => '>>' %>
+	</ul>
 </div>
 
 <div class="main_content" id="sent_main_content">
-	
+
 	<% @outbox_microposts.each do |micropost| %>
 	<%= label_tag micropost.id.to_s, :class=>"is_not_display", :id=>"sent_mail_content#"+micropost.id.to_s do%>
 	<span class="content"><%= micropost.content %></span>

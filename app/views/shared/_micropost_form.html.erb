@@ -1,12 +1,12 @@
 <%= form_for(@micropost) do |f|%>
 	<%= render 'error/error_messages', object: @micropost%>
 	
-	<%= f.submit "Post", class: "btn btn-large btn-primary" %>
 	<div class="filed">
-		<%= f.text_area :title, placeholder: "Compose new title" %>
-		<%= f.text_area :content, placeholder: "Compose new micropost" %>
-	    <%= f.label :group_id %>	    
+		<%= f.text_area :title, placeholder: "Compose new title", class: "compose_title" %>
+		<%= f.text_area :content, placeholder: "Compose new micropost", class: "compose_content" %>
+	    <!--<%= f.label :group_id %>-->	    
 		<!-- <%= f.text_area :group_name, placeholder: "Add the group" %> -->
 	</div>
+	<%= f.submit "Post", class: "btn btn-large btn-primary btn_compose" %>
 	
 <% end %>
