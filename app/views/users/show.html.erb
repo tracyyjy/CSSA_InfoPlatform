@@ -11,11 +11,15 @@
 <div class = "control-group select_all_groups">	
 	<label class = "select_label" for = "all_groups">My Groups: </label>
 	
-	<select id="<%= @user.id %>" onchange="get_options(this.id)">
+	<%= form_for(@user) do |f|%>
+    <%= f.collection_select :current_group, current_user.groups.all, :id, :group_name, {},{:onChange => 'this.form.submit();'} %>
+    <% end %>
+
+	<!--<select id="<%= @user.id %>" onchange="get_options(this.id)">
 	<% @user.groups.each do |group| %>
 	<option value="<%= group.id %>" class="select_options" ><%= group.group_name%></option> 
     <% end%>
-    </select>
+ </select>-->
 </div>
 
 <div class="mail_main_area">

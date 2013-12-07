@@ -31,7 +31,7 @@
 				<%= group.group_name%>
 			</div>
 			<%= form_for(current_user.relationships.find_by_joined_id(group), html:{method: :delete}) do |f| %>
-			<%= f.submit "Unjoin", class: "btn btn-large btn_compose btn_unjoin" %>
+			<%= f.submit group.group_name, class: "btn btn-large btn_compose btn_unjoin" %>
 			<% end %>
 			</br>
 			<% end %>
