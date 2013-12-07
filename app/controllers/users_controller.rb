@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
   
   def allinfo
+<<<<<<< HEAD
     # all posts in time order
     @feed_items = Micropost.paginate(:include => :user, page: params[:page])
     # use include option to avoid n+1 Queries Problem
@@ -18,6 +19,21 @@ class UsersController < ApplicationController
   #  encapsulate in show
   #   @micropost = current_user.microposts.build if signed_in?  # just create
   # end
+=======
+    @feed_items = current_user.allfeed
+  end
+  
+  def choseninfo
+    @feed_items = current_user.chosenfeed
+  end
+  
+  def post
+    @micropost = current_user.microposts.build if signed_in?
+    #@relationship = current_user.post(@micropost)
+    @relationship = current_user.relationships.build if signed_in?
+  end
+require "users_controller"
+>>>>>>> fee860efb27c8a9a1fc4bca633ae53b0f53030c3
 
   def show
     # user private  home page
@@ -85,6 +101,7 @@ class UsersController < ApplicationController
   end
   
   def profile
+<<<<<<< HEAD
      @user = User.find(params[:id])     
      @groups = Group.all
      # @default_groups=Group.find([1,2,3,4])
@@ -103,6 +120,10 @@ class UsersController < ApplicationController
      #  used for create new group
      @group = current_user.groups.build
          
+=======
+     @user = User.find(params[:id])
+     @relationship = current_user.relationships.build if signed_in?
+>>>>>>> fee860efb27c8a9a1fc4bca633ae53b0f53030c3
   end
   
   

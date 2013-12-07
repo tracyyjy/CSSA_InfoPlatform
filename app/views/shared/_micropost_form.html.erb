@@ -2,11 +2,17 @@
 	<%= render 'error/error_messages', object: @micropost%>
 	
 	<div class="filed">
+<<<<<<< HEAD
 		<%= f.text_area :title, placeholder: "Compose new title", class: "compose_title" %>
 		<%= f.text_area :content, placeholder: "Compose new micropost", class: "compose_content" %>
 	    <!--<%= f.label :group_id %>-->	    
 		<!-- <%= f.text_area :group_name, placeholder: "Add the group" %> -->
+=======
+		<%= f.text_area :content, placeholder: "Compose new micropost" %>
+		<%= f.text_area :groupid, placeholder: "Add the group of this micropost" %>
+>>>>>>> fee860efb27c8a9a1fc4bca633ae53b0f53030c3
 	</div>
 	<%= f.submit "Post", class: "btn btn-large btn-primary btn_compose" %>
 	
 <% end %>
+

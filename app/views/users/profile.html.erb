@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class = "common_background"></div>
 
 <% provide(:title, "Profile Setting")%>
@@ -38,6 +39,34 @@
 			<!--  -->
 		</div>
 		<%end %>
+=======
+<% provide(:title, "Profile Setting")%>
+<h1>Update your Profile Setting</h1>
+
+<div class="row">
+	<div class="span6 offset3"> 
+		<%= form_for(@relationship) do |f| %>
+			<%= render 'error/error_messages', object: @user %> 
+			
+		    
+		
+			Please input the group you want to follow
+			For demo, it will add to the relationtable
+			announcement's groupID is 1
+			carpool's groupID is 2
+			rent_lease's groupID is 3
+			sale's groupID is 4
+			  
+
+			<%= render 'error/error_messages', object: @relationship%>
+			<div class="filed">
+				<%= f.text_area :groupid, placeholder: "Add the group" %>
+			</div>
+			<%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+
+
+			
+>>>>>>> fee860efb27c8a9a1fc4bca633ae53b0f53030c3
 		</br>
 
 		<div class="divider"></div>
