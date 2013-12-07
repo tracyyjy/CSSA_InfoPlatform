@@ -1,10 +1,6 @@
 <li>
-<<<<<<< HEAD
 	<%= link_to micropost.user.name, publichome_user_path(micropost.user) %>
 	<span class="group_name">[<%= micropost.group_name %>]</span>
-=======
-	<span class="groupid">[<%= micropost.groupid %>]</span>
->>>>>>> fee860efb27c8a9a1fc4bca633ae53b0f53030c3
 	<span class="content"><%= micropost.content %></span>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(micropost.created_at) %> ago.

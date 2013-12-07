@@ -2,17 +2,11 @@ class User < ActiveRecord::Base
   # attr_accessor :password, :password_confirmation
   has_secure_password
   attr_accessible :name, :email, :password, :password_confirmation
-<<<<<<< HEAD
   attr_accessible :current_group, :microposts
   
   has_many :microposts, dependent: :destroy
   has_many :relationships, foreign_key: "joiner_id", dependent: :destroy  
   has_many :groups, through: :relationships, source: :joined #!
-=======
-  has_many :microposts
-  has_many :relationships, foreign_key: "userid";
-  has_many :groups, through: :relationships, source: :micropost
->>>>>>> fee860efb27c8a9a1fc4bca633ae53b0f53030c3
   
   attr_accessible :annoucement, :carpool, :rent_lease, :sale
   attr_accessible :annoucement_email, :carpool_email, :rent_lease_email, :sale_email
@@ -33,16 +27,8 @@ class User < ActiveRecord::Base
     self.remember_token = SecureRandom.urlsafe_base64
   end
   
-  def chosenfeed
-    Micropost.from_groups_chosen_by(self)
-  end
-  
-  def allfeed
-    Micropost.allmicroposts
-  end
-  
-  def post(micropost)
-    self.relationships.create(groupid: micropost.groupid)
+  def feed
+    self.microposts
   end
   
   def allfeed

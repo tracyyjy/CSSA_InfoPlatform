@@ -3,14 +3,9 @@
 		<%= link_to gravatar_for(feed_item.user), feed_item.user %>
 		<%= link_to feed_item.user.name,  publichome_user_path(feed_item.user) %>
 	</span>
-<<<<<<< HEAD
 	<span class="feed_group">[Group: <%= feed_item.group_name %>]</span>
 	<sapn class="feed_title">[Title: <%= feed_item.title %>]</span>	
 	<sapn class="feed_content">[Content: <%= feed_item.content %>]</span>
-=======
-	<span class="groupid">[<%= feed_item.groupid %>]</span>	
-	<sapn class="content"><%= feed_item.content %></span>
->>>>>>> fee860efb27c8a9a1fc4bca633ae53b0f53030c3
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
 	</span>
