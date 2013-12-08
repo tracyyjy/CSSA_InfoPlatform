@@ -82,6 +82,8 @@ class UsersController < ApplicationController
   
   def publichome
      @user = User.find(params[:id])
+     @my_microposts=@user.microposts.paginate(:include => :user, page: params[:page]).per_page(20)
+
   end
   
   def profile
