@@ -16,7 +16,9 @@ development:
   pool: 5
   username: root
   password: root
+  # mac os
   # socket: /tmp/mysql.sock
+  # ubuntu
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -30,13 +32,15 @@ test:
   pool: 5
   username: root
   password: root
+  # mac os
   # socket: /tmp/mysql.sock
+  # ubuntu
   socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql2
   encoding: utf8
-  host: 54.202.172.26
+  host: 54.247.43.152
   database: CSSA_InfoPlatform_production
   pool: 5
   username: remote
