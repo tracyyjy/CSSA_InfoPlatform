@@ -2,17 +2,19 @@
 <% provide(:title, "All Groups")%>
 <h3>All Groups</h3>
 <ul class="groups common_area">
-	
+		<% cache(@groups) do %>
 		Default Group:
 		<% @groups.each do |group|%>
 	<li>
+		<% cache(group) do %>
 		<%= group.group_name%>
 		<%= group.group_description%>
+		<% end %>
 		<% if group.id > 4 && current_user.admin?%>
 		<!-- only none default group can be delete by admin -->
 		<%= link_to "delete", group, method: :delete, confirm: "You Sure to Delete" %>
 		<% end %>
 	</li>
 	<%end%>
-	
+	<%end%>
 </ul>
