@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   
   def allinfo
     # all posts in time order
-    @feed_items = Micropost.paginate(:include => :user, page: params[:page])
+    @feed_items = Micropost.paginate(:include => :user, page: params[:page]).per_page(20)
     # use include option to avoid n+1 Queries Problem
   end
   
@@ -24,8 +24,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @current_group=Group.find(@user.current_group)
     
-    @inbox_microposts=@current_group.microposts.paginate(:include => :user, page: params[:page])
-    @outbox_microposts=current_user.my_group_posts.paginate(:include => :user, page: params[:page])
+    @inbox_microposts=@current_group.microposts.paginate(:include => :user, page: params[:page]).per_page(20)
+    @outbox_microposts=current_user.my_group_posts.paginate(:include => :user, page: params[:page]).per_page(20)
     
     @micropost = current_user.microposts.build if signed_in?#used for compose new pose
   end
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
   def index
     #  show all users, pic, name, link to public home
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page]).per_page(20)
     
   end
   

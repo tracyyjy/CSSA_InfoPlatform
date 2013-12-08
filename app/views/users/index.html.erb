@@ -1,7 +1,7 @@
 <div class = "common_background"></div>
 
 <ul class="pagination common_area_pagination">
-	<%= will_paginate @users, :container => false%>
+	<%= will_paginate @users, :container => false, :inner_window => '1', :outer_window => '0', :previous_label => '<<', :next_label => '>>' %>
 </ul>
 
 <% provide(:title, "All  Users")%>
