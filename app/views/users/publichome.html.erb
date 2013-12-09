@@ -1,5 +1,9 @@
 <div class = "common_background"></div> 
 
+<ul class="pagination common_area_pagination">
+	<%= will_paginate @my_microposts, :container => false, :inner_window => '1', :outer_window => '0', :previous_label => '<<', :next_label => '>>' %>
+</ul>
+
 <% provide(:title, "User Public")%>
 <h3>Public User Home</h3>	
 
@@ -13,8 +17,8 @@
 	<%end%>
 	</li>
 </p>	
-	Has <%= @user.microposts.count%> Posts:
-	<% @user.microposts.each do |post|%>
+	
+	<% @my_microposts.each do |post|%>
 	<li>
 		Group: [<%= post.group_name %>]
 		Title: <%= post.title %>

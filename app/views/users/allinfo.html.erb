@@ -3,7 +3,7 @@
 <% if signed_in? %>
 
 <ul class="pagination common_area_pagination">
-	<%= will_paginate @feed_items, :container => false%>
+	<%= will_paginate @feed_items, :container => false, :inner_window => '1', :outer_window => '0', :previous_label => '<<', :next_label => '>>'%>
 </ul>
 
 <div class="span8">
