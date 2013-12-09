@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131123212159) do
+ActiveRecord::Schema.define(:version => 20131209045005) do
 
   create_table "groups", :force => true do |t|
     t.string   "group_name"
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(:version => 20131123212159) do
   add_index "relationships", ["joined_id"], :name => "index_relationships_on_joined_id"
   add_index "relationships", ["joiner_id", "joined_id"], :name => "index_relationships_on_joiner_id_and_joined_id", :unique => true
   add_index "relationships", ["joiner_id"], :name => "index_relationships_on_joiner_id"
+
+  create_table "replies", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "micropost_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "replies", ["micropost_id", "created_at"], :name => "index_replies_on_micropost_id_and_created_at"
+  add_index "replies", ["user_id", "created_at"], :name => "index_replies_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "name"

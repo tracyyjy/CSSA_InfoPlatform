@@ -29,10 +29,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @current_group=Group.find(@user.current_group)
     
-    @inbox_microposts=@current_group.microposts.paginate(:include => :user, page: params[:page]).per_page(20)
+    @inbox_microposts=@current_group.microposts.paginate(:include => [:user, :replies], page: params[:page]).per_page(20)
     @outbox_microposts=current_user.my_group_posts.paginate(:include => :user, page: params[:page]).per_page(20)
     
     @micropost = current_user.microposts.build if signed_in?#used for compose new pose
+    @reply=current_user.replies.build
   end
 
   def create

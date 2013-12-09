@@ -12,6 +12,8 @@ CSSAInfoplatform::Application.routes.draw do
   resources :relationships, only: [:create, :update, :destroy]
   
   resources :groups, only: [:create, :destroy]
+  
+  resources :replies, only: [:create, :destroy]
   # get "users/new"
 
   root :to => 'home_page#home'

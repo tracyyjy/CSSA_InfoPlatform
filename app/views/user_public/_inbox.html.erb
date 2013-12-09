@@ -20,10 +20,45 @@
 	<%= link_to micropost.user.name, publichome_user_path(micropost.user) %>
 	<%= link_to gravatar_for(micropost.user), micropost.user %>
 	<%= mail_to micropost.user.email%>
-	<span class="group_name">[<%= micropost.group_name %>]</span>
+	<!-- <span class="group_name">[<%= micropost.group_name %>]</span> -->
+	<br></br>
 	<span class="content"><%= micropost.content %></span>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+		<br>
+		<% if micropost.replies.any? %>
+			
+			<br></br>
+			Replies Count: <%= micropost.replies.count %> 
+			<% micropost.replies.each do |reply| %>
+				<br>
+				<%= link_to reply.user.name, publichome_user_path(reply.user) %>
+				<%= mail_to reply.user.email%>
+				<br>
+				<%= link_to gravatar_for(reply.user), reply.user %>
+				</br>
+				
+				<%= reply.content %>
+				Posted <%= time_ago_in_words(reply.created_at) %> ago.
+				</br>
+			<% end %>
+			
+		<% end %>
+		</br>
+		
+		
+		<br>
+		</br>
+		<%= form_for(@reply) do |f|%>
+			<%= render 'error/error_messages', object: @reply%>
+			<div class="filed">
+				<!-- <%= f.text_area :micropost_id, placeholder: "micropost id", class: "compose_title" %> -->
+				<%= f.hidden_field :micropost_id, :value => micropost.id %>
+				<%= f.text_area :content, placeholder: "Compose new reply", class: "compose_title" %>
+			</div>
+			<%= f.submit "Post", class: "btn btn-large btn-primary btn_compose" %>
+	
+		<% end %>
     <%end%>
 <% end %>
 </div>

@@ -7,7 +7,6 @@
 		:id=>"sent_mail#"+micropost.id.to_s, :onclick=>"sent_mail_select(this.id, this.className)" do %>
 		<h4 class="list-group-item-heading"><%= micropost.title %></h4>
 		<p class="list-group-item-text">
-			...
 		</p>
 		<%end%>
 		<% end %>
@@ -20,10 +19,41 @@
 <div class="main_content" id="sent_main_content">
 
 	<% @outbox_microposts.each do |micropost| %>
-	<%= label_tag micropost.id.to_s, :class=>"is_not_display", :id=>"sent_mail_content#"+micropost.id.to_s do%>
-	<span class="content"><%= micropost.content %></span>
-	<span class="timestamp">
-		Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-	<%end%>
+		<%= label_tag micropost.id.to_s, :class=>"is_not_display", :id=>"sent_mail_content#"+micropost.id.to_s do%>
+			<span class="content"><%= micropost.content %></span>
+			<span class="timestamp">
+				Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+				<br>
+				<% if micropost.replies.any? %>
+			
+					<br></br>
+					Replies Count: <%= micropost.replies.count %> 
+					<% micropost.replies.each do |reply| %>
+						<br>
+						<%= link_to reply.user.name, publichome_user_path(reply.user) %>
+						<%= mail_to reply.user.email%>
+						<br>
+						<%= link_to gravatar_for(reply.user), reply.user %>
+						</br>
+				
+						<%= reply.content %>
+						Posted <%= time_ago_in_words(reply.created_at) %> ago.
+						</br>
+					<% end %>
+			
+				<% end %>
+				</br>
+				<br>
+				</br>
+				<%= form_for(@reply) do |f|%>
+					<%= render 'error/error_messages', object: @reply%>
+					<div class="filed">
+						<%= f.hidden_field :micropost_id, :value => micropost.id %>
+						<%= f.text_area :content, placeholder: "Compose new reply", class: "compose_title" %>
+					</div>
+					<%= f.submit "Post", class: "btn btn-large btn-primary btn_compose" %>
+	
+				<% end %>
+		<%end%>
 	<% end %>
 </div>

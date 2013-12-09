@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :relationships, foreign_key: "joiner_id", dependent: :destroy  
   has_many :groups, through: :relationships, source: :joined #!
   
+  has_many :replies, dependent: :destroy
+  
   attr_accessible :annoucement, :carpool, :rent_lease, :sale
   attr_accessible :annoucement_email, :carpool_email, :rent_lease_email, :sale_email
   
