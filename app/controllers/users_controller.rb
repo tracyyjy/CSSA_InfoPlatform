@@ -4,13 +4,18 @@ class UsersController < ApplicationController
   before_filter :admin_user, only: :destroy # how to add an admin to database?
   before_filter :skip_password_attribute, only: :profile
   
+  caches_action :create
+  caches_action :new
+  
   def new
     @user = User.new
   end
   
   def allinfo
     # all posts in time order
+
     @feed_items = Micropost.paginate(:include => :user, page: params[:page]).per_page(20)
+
     # use include option to avoid n+1 Queries Problem
   end
   

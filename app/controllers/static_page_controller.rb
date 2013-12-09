@@ -1,6 +1,9 @@
 class StaticPageController < ApplicationController
-
- def help
- end
+ 
+  
+  def help
+  end
+  
+ 
 
 end
