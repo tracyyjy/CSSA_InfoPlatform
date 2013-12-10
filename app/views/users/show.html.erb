@@ -8,18 +8,18 @@
 	</aside>
 </div>
 
-<div class = "control-group select_all_groups">	
+<div class = "control-group select_all_groups">
 	<label class = "select_label" for = "all_groups">My Groups: </label>
-	
-	<%= form_for(@user) do |f|%>
-    <%= f.collection_select :current_group, current_user.groups.all, :id, :group_name, {},{:onChange => 'this.form.submit();'} %>
-    <% end %>
-
+	<div class="select_options">
+		<%= form_for(@user) do |f|%>
+		<%= f.collection_select :current_group, current_user.groups.all, :id, :group_name, {},{:onChange => 'this.form.submit();'} %>
+		<% end %>
+	</div>
 	<!--<select id="<%= @user.id %>" onchange="get_options(this.id)">
 	<% @user.groups.each do |group| %>
-	<option value="<%= group.id %>" class="select_options" ><%= group.group_name%></option> 
-    <% end%>
- </select>-->
+	<option value="<%= group.id %>" class="select_options" ><%= group.group_name%></option>
+	<% end%>
+	</select>-->
 </div>
 
 <div class="mail_main_area">
@@ -30,7 +30,7 @@
 		<li id="li_sent">
 			<a href="#sentbox" data-toggle="pill">Sent</a>
 		</li>
-		<li id="li_compose"> 
+		<li id="li_compose">
 			<a href="#compose" data-toggle="pill">Compose</a>
 		</li>
 	</ul>
@@ -45,13 +45,18 @@
 	<div class="divider"></div>
 	<div class="mail_display_area tab-content">
 		<!-- if 'inbox' is clicked then render inbox-->
-		<div class="tab-pane active" id="inbox"><%= render "user_public/inbox" %></div>
+		<div class="tab-pane active" id="inbox">
+			<%= render "user_public/inbox" %>
+		</div>
 		<!-- if 'sent' is clicked then render sent-->
-		<div class="tab-pane" id="sentbox"><%= render 'user_public/sentbox'%></div>
+		<div class="tab-pane" id="sentbox">
+			<%= render 'user_public/sentbox'%>
+		</div>
 		<!-- if 'compose' is clicked then render compose-->
-		<div class="tab-pane" id="compose"><%= render 'user_public/compose'%></div>	
+		<div class="tab-pane" id="compose">
+			<%= render 'user_public/compose'%>
+		</div>
 	</div>
 
 </div>
-
 

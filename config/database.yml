@@ -17,9 +17,9 @@ development:
   username: root
   password: root
   # mac os
-  # socket: /tmp/mysql.sock
+  socket: /tmp/mysql.sock
   # ubuntu
-  socket: /var/run/mysqld/mysqld.sock
+  #socket: /var/run/mysqld/mysqld.sock
 
 
 # Warning: The database defined as "test" will be erased and
@@ -34,9 +34,9 @@ test:
   username: root
   password: root
   # mac os
-  # socket: /tmp/mysql.sock
+  socket: /tmp/mysql.sock
   # ubuntu
-  socket: /var/run/mysqld/mysqld.sock
+  #socket: /var/run/mysqld/mysqld.sock
 
 
 production:

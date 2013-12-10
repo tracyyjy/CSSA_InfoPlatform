@@ -7,7 +7,7 @@
 	<div class="span6 offset3">
 		<br>
 		<% if @unjoined_groups.any? %>
-		<b>Join other groups:</b>
+		<h5><b>Join other groups:</b></h5>
 		<div class="join_area">
 			<%= form_for(current_user.relationships.build) do |f| %>
 			<div>
@@ -23,7 +23,7 @@
 
 		<% if @joined_groups.any? %>
 		<div class="unjoin_area">
-			<b>Unjoin selected group:</b>
+			<h5><b>Unjoin selected group:</b></h5>
 			<!--  -->
 			<% @joined_groups.each do |group| %>
 			<br>
@@ -43,7 +43,7 @@
 		<div class="divider"></div>
 
 		<div class="new_group_area">
-			<b>Add new Group:</b>
+			<h5><b>Add new Group:</b></5>
 			<%= form_for(current_user.groups.build) do |f|%>
 			<%= render 'error/error_messages', object: @group%>
 			<div class="filed">

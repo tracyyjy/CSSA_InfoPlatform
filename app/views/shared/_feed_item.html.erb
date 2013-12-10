@@ -1,4 +1,4 @@
-<li class="feed_item" id="<%= feed_item.id %>">
+<li class="feed_item decorate_p" id="<%= feed_item.id %>">
 	<% cache(feed_item) do %>
 		<span class="users">
 			<%= link_to gravatar_for(feed_item.user), feed_item.user %>
