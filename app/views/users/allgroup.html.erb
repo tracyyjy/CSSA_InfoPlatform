@@ -2,10 +2,10 @@
 <% provide(:title, "All Groups")%>
 <h3>All Groups</h3>
 <ul class="groups common_area">
-		<% cache(@groups) do %>
-		Default Group:
-		<% @groups.each do |group|%>
-	<li>
+	<% cache(@groups) do %>
+	<h5>Default Group:</h5>
+	<% @groups.each do |group|%>
+	<li class="decorate_p">
 		<% cache(group) do %>
 		<%= group.group_name%>
 		<%= group.group_description%>

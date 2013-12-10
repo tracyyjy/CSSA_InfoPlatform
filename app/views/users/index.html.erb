@@ -15,7 +15,7 @@
 <ul class="users common_area">
 	<% cache(@users) do %>
 		<% @users.each do |user| %>
-			<li>
+			<li class="decorate_p">
 				<% cache(user) do %>
 					<%= gravatar_for user %>
 					<%= link_to user.name, publichome_user_path(user) %>

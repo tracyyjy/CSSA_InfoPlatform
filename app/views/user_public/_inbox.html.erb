@@ -1,64 +1,64 @@
 <div class="mail_left_part">
-<div class="list-group mail_list" id = "inbox_group_mail_list">
-	<!--  use a for loop here to display each mail briefly -->
-	<% @inbox_microposts.each do |micropost| %>
-	 <%= link_to '#inbox_mail'+micropost.id.to_s, :class=>"list-group-item", 
-	 :id=>"inbox_mail#"+micropost.id.to_s, :onclick=>"inbox_mail_select(this.id, this.className)" do %>
-    <h4 class="list-group-item-heading"><%= micropost.title %></h4>	
-    
-  <%end%>
-  <% end %> 
- </div>
- <ul class="pagination inbox_pagination">
- <%= will_paginate  @inbox_microposts, :container => false, :inner_window => '1', :outer_window => '0', :previous_label => '<<', :next_label => '>>' %>
- </ul>
+	<div class="list-group mail_list" id = "inbox_group_mail_list">
+		<!--  use a for loop here to display each mail briefly -->
+		<% @inbox_microposts.each do |micropost| %>
+		<%= link_to '#inbox_mail'+micropost.id.to_s, :class=>"list-group-item",
+		:id=>"inbox_mail#"+micropost.id.to_s, :onclick=>"inbox_mail_select(this.id, this.className)" do %>
+		<h5 class="list-group-item-heading"><%= micropost.title %></h5>
+
+		<%end%>
+		<% end %>
+	</div>
+	<ul class="pagination inbox_pagination">
+		<%= will_paginate  @inbox_microposts, :container => false, :inner_window => '1', :outer_window => '0', :previous_label => '<<', :next_label => '>>' %>
+	</ul>
 </div>
 
-<div class="main_content" id="inbox_main_content">	
-<% @inbox_microposts.each do |micropost| %>
-    <%= label_tag micropost.id.to_s, :class=>"is_not_display", :id=>"inbox_mail_content#"+micropost.id.to_s do%>
-	<%= link_to micropost.user.name, publichome_user_path(micropost.user) %>
-	<%= link_to gravatar_for(micropost.user), micropost.user %>
-	<%= mail_to micropost.user.email%>
-	<!-- <span class="group_name">[<%= micropost.group_name %>]</span> -->
-	<br></br>
-	<span class="content"><%= micropost.content %></span>
-	<span class="timestamp">
-		Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+<div class="main_content" id="inbox_main_content">
+	<% @inbox_microposts.each do |micropost| %>
+	<%= label_tag micropost.id.to_s, :class=>"is_not_display", :id=>"inbox_mail_content#"+micropost.id.to_s do%>
+
+	<div class="post_content">
+		<%= link_to micropost.user.name, publichome_user_path(micropost.user) %>
+		<%= link_to gravatar_for(micropost.user), micropost.user %>
+		<%= mail_to micropost.user.email%>
+		<!-- <span class="group_name">[<%= micropost.group_name %>]</span> -->
 		<br>
-		<% if micropost.replies.any? %>
-			
-			<br></br>
-			Replies Count: <%= micropost.replies.count %> 
+		</br>
+		<span class="content decorate_p"><%= micropost.content %></span>
+		<span class="timestamp timestamp_grey"> Posted <%= time_ago_in_words(micropost.created_at) %> ago.</span>
+			<br>
+			<% if micropost.replies.any? %>
+
+			Replies Count: <%= micropost.replies.count %>
 			<% micropost.replies.each do |reply| %>
-				<br>
-				<%= link_to reply.user.name, publichome_user_path(reply.user) %>
-				<%= mail_to reply.user.email%>
-				<br>
-				<%= link_to gravatar_for(reply.user), reply.user %>
-				</br>
-				
-				<%= reply.content %>
-				Posted <%= time_ago_in_words(reply.created_at) %> ago.
-				</br>
+			<br>
+			<%= link_to reply.user.name, publichome_user_path(reply.user) %>
+			<%= mail_to reply.user.email%>
+			<br>
+			<%= link_to gravatar_for(reply.user), reply.user %>
+			</br>
+
+			<%= reply.content %>
+			Posted <%= time_ago_in_words(reply.created_at) %> ago.
+			</br>
 			<% end %>
-			
-		<% end %>
-		</br>
-		
-		
-		<br>
-		</br>
+
+			<% end %>
+			</br>
+	</div>
+	<div class="reply_content">
 		<%= form_for(@reply) do |f|%>
-			<%= render 'error/error_messages', object: @reply%>
-			<div class="filed">
-				<!-- <%= f.text_area :micropost_id, placeholder: "micropost id", class: "compose_title" %> -->
-				<%= f.hidden_field :micropost_id, :value => micropost.id %>
-				<%= f.text_area :content, placeholder: "Compose new reply", class: "compose_title" %>
-			</div>
-			<%= f.submit "Post", class: "btn btn-large btn-primary btn_compose" %>
-	
+		<%= render 'error/error_messages', object: @reply%>
+		<div class="filed">
+			<!-- <%= f.text_area :micropost_id, placeholder: "micropost id", class: "compose_title" %> -->
+			<%= f.hidden_field :micropost_id, :value => micropost.id %>
+			<%= f.text_area :content, placeholder: "Compose new reply", class: "compose_reply" %>
+		</div> <%= f.submit "Post", class: "btn btn-large btn-primary btn_compose" %>
+
 		<% end %>
-    <%end%>
-<% end %>
+
+	</div>
+	<%end%>
+	<% end %>
 </div>

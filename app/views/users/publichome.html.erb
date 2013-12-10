@@ -8,26 +8,36 @@
 <h3>Public User Home</h3>	
 
 <div class = "common_area">
-<p>
-	<br><%= @user.name%></br>
-	Has <%= @user.groups.count%>  of groups:
+<div class="head_area">
+	
+	<span><%= gravatar_for @user%></span>
+	
+	<h4><%= @user.name%></h4>
+</div>
+<div class="divider"></div>
+<div class="head_below_area">	
+   <h5>Has <%= @user.groups.count%> groups:</h5>
 	<% @user.groups.each do |joined_group|%>
-	<li>
+	<li class="decorate_p">
 	<%= joined_group.group_name%>
 	<%end%>
 	</li>
-</p>	
 	
+	<h5>Has <%= @my_microposts.count%> posts:</h5>
 	<% @my_microposts.each do |post|%>
-	<li>
-		Group: [<%= post.group_name %>]
-		Title: <%= post.title %>
-		Cotent: <%= post.content %>
-		Posted: <%= time_ago_in_words(post.created_at) %> ago.
+	<li class="decorate_p">
+		<div><b>Group: </b><%= post.group_name %></div>
+		<div><b>Title: </b><%= post.title %></div>
+		<div>
+			<b>Cotent: </b><%= post.content %>
+		    <b>Posted: </b><%= time_ago_in_words(post.created_at) %> ago.
+		
 		<% if current_user?(post.user)%>
 			<%= link_to "delete", post, method: :delete, confirm: "You sure?", title: post.content %>
-		<% end %>	
+		<% end %>
+		</div>	
 	</li>	
 	<%end%>
 	</li>
+	</div>
 </div>	

@@ -88,10 +88,16 @@
   margin-right: 20px;
 }
 
-.select_all_groups .select_options{
+.select_all_groups{
   font-size: 10pt;
   width: auto;
-  height: 30px;
+  height: 60px;
+}
+
+.select_options{
+  font-size: 11pt;
+  width: 200px;
+  height: auto;
 }
 
 .mail_left_part{
@@ -114,10 +120,36 @@
   height: 525px;
   margin-right: 5px;
   background-color: #fff;
-  overflow-y: scroll;
+  
   //border-style: solid;
   //border-color: blue red;
   
+}
+
+.post_content{
+  width: auto;
+  height: 425px;
+  //margin-bottom: 10px;
+  margin: 10px;
+  overflow-y: scroll;
+}
+
+.reply_content{
+  width: auto;
+  height: 90px;
+  margin: 10px;
+}
+
+.compose_reply{
+  margin: 5px;
+  width: 620px;
+  height: 35px;
+  line-height: 35px;
+}
+
+.timestamp_grey{
+  color: grey;
+  text-decoration: none;
 }
 
 .fill_in_field{
@@ -130,15 +162,18 @@
 .compose_title, .compose_content{
   margin: 5px;
   width: 925px; 
+  padding: 5px;
 }
 
 .compose_title{
-  height: 35px;
+  height: 45px;
   line-height: 35px;
+  font-size: 12pt;
+  font-weight: bold;
 }
 
 .compose_content{
-  height: 440px;
+  height: 420px;
   overflow-y: scroll;
 }
 
@@ -183,6 +218,10 @@
   margin-top: 40px;
   height: 480px;
   overflow-y: scroll; 
+  
+  .head_below_area{
+    margin-top: 45px;
+  }
 }
 
 .common_area_pageinfo{
@@ -227,7 +266,7 @@
 }
 
 .unjoin_area{
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 .new_group_area{
