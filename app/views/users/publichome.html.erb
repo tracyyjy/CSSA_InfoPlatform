@@ -10,9 +10,10 @@
 <div class = "common_area">
 <div class="head_area">
 	
-	<span><%= gravatar_for @user%></span>
+    <%= gravatar_for @user%>
 	
 	<h4><%= @user.name%></h4>
+	<h5><%= mail_to @user.email%></h5>
 </div>
 <div class="divider"></div>
 <div class="head_below_area">	
@@ -30,7 +31,7 @@
 		<div><b>Title: </b><%= post.title %></div>
 		<div>
 			<b>Cotent: </b><%= post.content %>
-		    <b>Posted: </b><%= time_ago_in_words(post.created_at) %> ago.
+		    <span class="timestamp timestamp_grey"><b>Posted: </b><%= time_ago_in_words(post.created_at) %> ago.</span>
 		
 		<% if current_user?(post.user)%>
 			<%= link_to "delete", post, method: :delete, confirm: "You sure?", title: post.content %>

@@ -8,7 +8,7 @@
 		<sapn class="feed_title">[Title: <%= feed_item.title %>]</span>	
 		<sapn class="feed_content">[Content: <%= feed_item.content %>]</span>
 	<% end %>
-	<span class="timestamp">
+	<span class="timestamp timestamp_grey">
 		Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
 	</span>
 	<% if current_user?(feed_item.user)%>
